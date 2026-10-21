@@ -2,11 +2,11 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Scope: Lecture 2 Pure Orthogonal](https://img.shields.io/badge/Scope-Lecture%202%20Orthogonal-emerald.svg)](orthocut.py)
+[![Scope: ME361 Pure Orthogonal Cutting](https://img.shields.io/badge/Scope-Lecture%202%20Orthogonal-emerald.svg)](orthocut.py)
 [![Interactive Web Twin](https://img.shields.io/badge/Web%20Twin-HTML5%20Canvas%20%2B%20JS-purple.svg)](web/)
 [![Report: PDF Available](https://img.shields.io/badge/Report-PDF%20Compiled-red.svg)](ME361_Digital_Machining_Twin_Report.pdf)
 
-A complete **Digital Machining Twin** developed for **ME361 (Manufacturing Processes)**, implementing the **pure orthogonal single-shear-plane model (Lecture 2)** alongside an empirical calibration pipeline, external experimental data validation (ETH Zürich & Lund databases), and a real-time browser-based interactive dashboard.
+A complete **Digital Machining Twin** developed for **ME361 (Secondary Manufacturing Processes)**, implementing the **pure orthogonal single-shear-plane model** alongside an empirical calibration pipeline, external experimental data validation (ETH Zürich & Lund databases), and a real-time browser-based interactive dashboard.
 
 ---
 
