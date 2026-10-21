@@ -21,5 +21,21 @@ I couldn't pull these automatically: ScienceDirect sits behind a Cloudflare chal
 * `note`: give the table or figure number, e.g. `Agmell2017 Table 5, experimental`.
 * **Never enter FEM/simulated values as data.** Experimental values only.
 
+## Workflow with `lit_tools.py` (validated append; use the `research` conda env)
+Save the PDF you downloaded by hand as `data/raw/agmell2017.pdf`. The current file with that name is a Cloudflare error page and has been removed.
+```bash
+# 1. Table in the paper?
+python lit_tools.py tables data/raw/agmell2017.pdf --text          # dumps to data/raw/tables/, flags force tables
+python lit_tools.py from-table data/raw/tables/pXX_tYY.csv --cols t=0,Fc=2,Ff=3 \
+       --source AGMELL2017 --vc 125 --w <width or 1 if N/mm> --gamma <rake> --rn <edge um> \
+       --note "Agmell2017 Table N, experimental" --dry              # drop --dry once the printout looks right
+# 2. Only a figure? Screenshot it, then:
+python lit_tools.py grid fig.png                                     # read two y-tick pixels
+python lit_tools.py bars fig.png --ycal "412:0,88:500"               # or: points --pix "x,y;..." --xcal ...
+#    then type the conditions into rows.csv with digitised=1 and run:
+python lit_tools.py append rows.csv --dry
+```
+The tool refuses rows with FEM/simulation notes, missing values, or implausible units.
+
 ## After entering
 Re-run `04_external_data_validation.ipynb`. Section 6 picks up `lit_316L.csv` automatically. If it has rows, the notebook tests the provisional 316L preset against them, which counts as a held-out check because none of those numbers were used for fitting.
