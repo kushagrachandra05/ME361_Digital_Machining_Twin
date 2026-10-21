@@ -202,6 +202,9 @@ python generate_report_pdf.py
 
 ## 👥 Authors & Acknowledgments
 
-* **Kushagra Chandra** — ME361 Manufacturing Processes
-* **Course Instruction:** Single shear-plane orthogonal cutting model & Merchant analysis (Lecture 2).
+Group G23
+* **Amrit Dwivedi** (240111)
+* **Kushagra Chandra** (240585)
+* **Course:** Secondary Manufacturing Processes (ME361)
+* **Instructor:** Prof. Sarvesh Mishra
 * **Data Sources:** ETH Zürich IWF (Klippel et al., 2024); Lund University (Agmell et al., 2017).
