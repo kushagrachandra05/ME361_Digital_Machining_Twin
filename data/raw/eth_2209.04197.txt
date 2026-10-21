@@ -1,0 +1,1927 @@
+                                                             Dry Cutting Experiments Database Ti6Al4V and Ck45
+
+                                                        Hagen Klippel*, Hagen Klippel, Stefan Süssmaier, Michal Kuffa, Konrad Wegener
+
+                                                    Institute of Machine Tools and Manufacturing (IWF), Department of Mechanical and Process Engineering,
+                                                                           ETH Zürich, Leonhardstrasse 21, 8092 Zürich, Switzerland
+
+
+
+
+                                                    Abstract
+arXiv:2209.04197v1 [cond-mat.mtrl-sci] 9 Sep 2022
+
+
+
+
+                                                    The numerical simulation of metal cutting processes requires material data for constitutive
+                                                    equations, which cannot be obtained with standard material testing procedures. Instead,
+                                                    inverse identifications of material parameters within numerical simulation models of the cut-
+                                                    ting experiment itself are necessary. The intention of the present report is the provision of
+                                                    results of a large scale experimental study of dry orthogonal cutting experiments of Ti6Al4V
+                                                    (3.7165 Grade 5) and Ck45 (AISI 1045) along with their documentation and interpretation.
+                                                    The process forces are evaluated and each cutting insert geometry has been measured prior to
+                                                    the experiments to determine the cutting edge radii for each experiment. The resulting chip
+                                                    forms are analysed and the averaged chip thicknesses are determined. A material character-
+                                                    ization is performed, which includes microstructural investigations on the raw materials and
+                                                    is reported together with tensile test results. The assembled data set can be used for parame-
+                                                    ter identification when the experimental conditions are reproduced in numerical simulations.
+                                                    The cutting test results are finally used to derive coefficients for Kienzle’s force model. The
+                                                    data is stored in the pCloud and contains process force measurement data, cutting edge radii
+                                                    scans, pictures of chip geometries and etched chips.
+                                                    Keywords:
+                                                    Material Characterization, Metal Cutting, Orthogonal Cutting, Dry Cutting, Ck45, AISI
+                                                    1045, Ti6Al4V, Process Forces, Cutter Geometry, Chip Shape, Kienzle Coefficients
+
+
+
+                                                    1. Introduction
+
+                                                    The metal cutting process is characterized by harsh conditions, which comprise large plastic
+                                                    strains up to 700%, strain rates up to 106 s−1 and temperatures ranging from 500◦ C to
+                                                    1400◦ C, according to [2] . In the numerical simulation of such processes material parameters
+                                                    for constitutive models are required, but these conditions cannot be reproduced in neither
+                                                    simple (direct) experiments nor in experiments combining these effects. Instead, material
+                                                    parameters need to be deduced from an inverse identification, where the cutting test itself
+                                                    serves as a material test, as for example shown in [13, 17, 35].
+
+                                                    Constitutive model constants taken from literature, e.g. for Ti6Al4V [10], show large vari-
+                                                    ations and so do the simulation results. Raw materials specified by the respective norms,
+
+                                                       Email address: klippel@iwf.mavt.ethz.ch (Hagen Klippel*)
+
+
+                                                                                                     1
+when sourced from different suppliers and charges, shows slight variations in the chemical
+composition within the tolerance bands and may have undergone different manufacturing
+steps (drawing, rolling, forging) and heat treatments, which finally leads to a wide scatter
+of thermo-mechanical behaviour [14, 36]. These initial conditions of the materials are often
+not clear, which makes it difficult to select a suitable constitutive model parameter set from
+literature for the numerical simulation of documented experiments, for example in [9, 39].
+
+Ck45 is a perlitic-ferritic steel which is easy to machine and widely used in mechanical
+engineering applications, e.g. for crankshafts, bolts, gears and bearings [28]. The material
+exhibits dynamic strain aging at elevated temperatures leading to increased yield stresses
+depending on plastic strain rate and temperature and thus can affect the chip formation and
+process forces as highlighted in [4, 5, 27].
+
+Titanium alloys are of great industrial interest [29] and find wide use use in biotechnical
+applications due to their biocompatibility [12] and are also popular in aeronautics [30] due to
+their low density and high strength. The most widely used titanium alloy is Ti6Al4V which
+however is considered difficult to machine because the material removal rate is low if the tool
+wear is to be low, since the considerable high-temperature strength inhibits temperature-
+induced softening during the separation process, leading to high thermal and mechanical
+stress in the tool [15, 31, 41].
+
+The aim of the present publication is the documentation of a large scale testing program of
+(AISI 1045) and Ti6Al4V (3.7165, Grade 5) using dry quasi-orthogonal cutting experiments.
+The cutting tests are performed in a wide range of feed rates (f = 0.01..0.4mm/rev) and
+cutting speeds (vc = 10...500m/min). Prior to the cutting experiments the raw materials
+are examined: hardness tests, as well as microstructural analyses by means of investigating
+etched samples and electron backscatter diffraction (EBSD) analyses are conducted to detect
+any irregularities, e.g. preferential grain orientations or material anisotropies, that may be
+caused by the manufacturing process. Tensile tests are carried out on test specimens of
+these materials and material parameter for quasi-stationary conditions together with the
+rate dependency at low strain rates, are documented.
+
+In the orthogonal cutting tests neither lubrication nor cooling have been used. Each cutting
+test was performed with an unused cutting edge to minimize possible wear effects on the
+process. All cutting edges were measured using 3D metrology before the cutting tests to
+determine the cutting edge radii in the unworn state. This is necessary because the cutting
+edge radii can have a significant influence the process forces [1, 38, 39]. The measured
+process forces, chip shapes, average chip thicknesses, chip microstructures, apparent friction
+coefficients according to Merchant [25] and where applicable built-up edge formations and
+tempering colors are documented. The measured process forces are used to derive Kienzle
+coefficients for both materials over a large range of cutting speeds.
+
+
+2. Material Specification
+
+Raw materials of Ck45 and Ti6Al4V are used in cylindrical form with a diameter of ≈ 80 mm
+and a height of 90 mm. All cylinders are from the same batch of the respective material.
+
+
+
+
+                                              2
+2.1. Delivery Condition of the Materials
+
+Ti6Al4V is an alloy containing 6% (weight) Aluminium and 4% (weight) of Vanadium and
+consists of two phases: α-phase and β-phase. The α-phase is stabilized by aluminium and
+has a hcp-structure, while the β-phase is stabilized by vanadium, consisting of a bcc-lattice
+[3]. This batch of material was produced using the triple Vacuum Arc Remelting (VAR)
+method. After production a heat treatment at 750◦ C for 90 min was performed followed by
+air cooling. The chemical composition as specified from the supplier is given in table 1 and
+the tensile properties (minimum values) in table 2.
+
+The material batch of Ck45 (C45E) was produced in an electric shaft furnace and afterwards
+rolled into cylindric form. The chemical composition as specified by the supplier is shown in
+table 1, the tensile properties of the materials in table 2. A Jominy-test was performed by
+the supplier and the results are shown in table 3. The material exhibits a high hardenability
+at the outer surface where the hardness is up to 59 HRC which indicates a martensitic
+microstructure and decreases to 19 HRC with increasing distance from the surface, indicating
+a ferritic-perlitic microstructure.
+Material   Fe     C        N        H    O    Y    Al    V    Ti       Mn Si   P    S    Cr       Ni Mo Cu      Sn   Nb   B
+                                                                                                                       Residuals
+                                                                                                                       each total
+Ti6Al4V 0.111 0.025 0.020 0.003 0.15 < 0.005 6.12 4.11 Balance -    -    -     -    -    -    -    -    -     -     - < 0.1 < 0.4
+ Ck45 Balance 0.445 -       -     -     -    0.01 0.002 0.01 0.76 0.24 0.018 0.02 0.18 0.05 0.01 0.15 0.006 0.001 0.000 -     -
+
+  Table 1: Ti6Al4V and Ck45: Supplier information on the chemical composition of this material batch.
+
+
+
+       Material           Tensile                Yield strength            Elongation             Reduction       Hardness
+                      strength [MPa]          (0,2% offset) [MPa]         at break [%]            of area [%]    test [HRC]
+       Ti6Al4V              952                       869               16.5 (4 · D, [34])             39            30.0
+        Ck45                671                       420                22.2 (A5 , [7])
+
+ Table 2: Ti6Al4V and Ck45: Supplier information on tensile test results of the respective material batch.
+
+
+
+           [mm]        1       2         3    4   5      6    7    8      9    10   11       13     15   20     25   30
+           HRC        59       57       54   46   37    34   30    29    28    27   26       25     24   23     21   19
+
+                Table 3: Ck45: supplier information on Jominy test results of this material batch.
+
+
+
+
+2.2. Sample Preparation
+
+Deep bores are inserted to the raw cylinders using EDM drilling. A smaller cylinder of 60 mm
+diamater is cut out via wire EDM and used to manufacture the test specimens for tensile
+testing, see chapter 2.5. The outer cylinders are used for orthogonal cutting experiments.
+A disk with a height of hdisk = 10 mm is sliced off of one cylinder of each material using
+wire EDM and used to determine the radial hardness profile. The disks are ground and
+polished prior to the hardness measurements. After the hardness measurements, the same
+disks are used to prepare etched samples from the top and side surface for microstructural
+investigations and EBSD analyses. An overview of the material usage is shown in Figure 1.
+
+
+
+
+                                                                   3
+Figure 1: Left: raw material usage for material tests and orthogonal cutting tests. Right: sample orientations
+for hardness measurements, etched samples and EBSD analysis with surface denominations.
+
+
+2.3. Vickers Hardeness Measurement
+
+Vickers hardness measurements HV10 are conducted for Ck45 and Ti6Al4V. The measure-
+ments are performed on the top faces along four directions of the samples where in one direc-
+tion a 1 mm stepping and in the others a 2 mm stepping was used. The hardness measurement
+directions and both disks are shown in figure 2. The results of the hardness measurement
+are shown in Figure 3 where the Ck45 shows a hardness reduction at the disk center within a
+radius of around 6mm. Towards the outer radius the hardness is constant except for the very
+last measurement point in direction 2 which shows a slight drop in hardness. The hardness
+distribution of the Ti6Al4V sample is almost constant in all directions and radial positions
+with the exception of some spots.
+
+
+
+
+Figure 2: Hardness measurement directions (left), Ti6Al4V disk (middle) and Ck45 (right) disks from cylin-
+ders used for the hardness measurements. The Ck45 disk is shown here before grinding, polishing and
+hardness measurements while the Ti6Al4V is already cut in half for microstructural investigations with the
+right half showing imprints from the hardness measurements (2mm stepping) along the slightly visible red
+line.
+
+
+
+
+                                                      4
+                  Figure 3: Hardness measurement Ti6Al4V(left) and Ck45 (right).
+
+
+2.4. Microstructure
+
+The microstructure of the two materials is investigated by optical analysis of the etched
+surface and EBSD-analysis. This investigation should indicate possible irregularities of the
+grain structure or anisotropy in the material which could lead to different requirements for
+the constitutive model to be used in numerical simulations of the cutting experiments.
+
+
+2.4.1. Etching
+
+Etched samples are prepared for microstructural analyses of the top and side surface. The
+Ti6Al4V samples are etched with Kroll. The microstructure of the top and side surface are
+shown in Figure 4. Due to the heat treatment both show a uniform microstructure without
+any salience.
+
+The Ck45 is etched with Nital. Figure 5 shows the top surface. A ferritic-perlitic microstruc-
+ture is visible. Towards the outer surface, decarburations and mill scales can be seen. At
+the disk center the microstructure is uniform. The side surface microstructure revealed a
+columnar structure along the cylinder axis, see Figure 6. This is likely to have been induced
+by rolling during the manufacturing process.
+
+
+
+
+                                                5
+Figure 4: Microstructure of Ti6Al4V: the top surface (left) and the side surface (right) show a uniform grain
+structure.
+
+
+
+
+Figure 5: Microstructure of Ck45 steel: top surface at the disk center (left) showing a uniform grain structure
+and at outer radius (right) showing decarburation and mill scale.
+
+
+
+
+            Figure 6: Microstructure of Ck45 steel: side surface showing a columnar structure.
+
+
+                                                      6
+2.4.2. EBSD
+
+The crystallographic orientations in the grains and the textures are measured with EBSD
+for the top and side surfaces of the Ck45 and Ti6Al4V material. The measured areas of the
+samples are given in table 4. The EBSD-analysis of Ti6Al4V reveals a slightly different ratio
+of α- and β-phase for top and side surface. The average grain diameter and average aspect
+ratios of the grains are similar for the side and top surface. The results, together with grain
+sizes and aspect ratios, are given in table 5 for Ti6Al4V and Ck45. The grain orientations of
+Ti6Al4V are shown for the side and top surface in Figure 7, the corresponding distributions
+of α and β-phases in Figure 8. The pole figures of the α-phases are given with Figures 9 for
+side and top surface, respectively. The pole figures reveal a slightly stronger texture in the
+side surface than in the top surface. The grain orientations of Ck45 are shown for the top
+and side surface in Figure 10 and the pole figures in Figure 11. Similar to Ti6Al4V, the side
+surface shows a stronger texture than the top surface which may have been induced by the
+rolling process during manufacturing.
+                                Specimen         Surface      Sample size [µm2 ]    Figures
+                                Ti6Al4V        Side surface      443 x 347
+                                                                                    7, 8, 9
+                                Ti6Al4V        Top surface       331 x 428
+                                  Ck45         Side surface      545 x 428
+                                                                                    10, 11
+                                  Ck45         Top surface       709 x 556
+
+                            Table 4: EBSD measurement sizes of the four specimen.
+
+
+
+ Material     Surface      Avg. equiv. grain     Std.dev.     Avg. grain     Std. dev. grain   α-phase   β-phase     Comment
+                           diameter Dg [µm]      µDg [µm]     aspect ratio     aspect ratio    vol. %     vol.%
+ Ti6Al4V    Side surface          9.9              4.2            1.8              0.6           96.7      3.3
+ Ti6Al4V    Top surface           9.1              3.2            1.7              0.5           94.8      5.2
+  Ck45      Side surface         17.8              13.5           1.8              0.5            -         -      noisy raw data
+  Ck45      Top surface          14.3              9.3            1.8              0.6            -         -
+
+             Table 5: Ti6Al4V and Ck45: EBSD measurement results for side and top surface.
+
+
+
+
+                                                              7
+   Figure 7: EBSD of Ti6Al4V: side (left) and top (right) surface with crystal orientations.
+
+
+
+
+Figure 8: EBSD of Ti6Al4V: α / β- phase distribution in the side (left) and top (right) surface.
+
+
+
+
+                                               8
+Figure 9: EBSD of Ti6Al4V: side (top row) and top (bottom row) surface pole figures of the α- phase.
+
+
+
+
+       Figure 10: EBSD of Ck45: top (left) and side (right) surface with crystal orientations.
+
+
+
+
+                                                 9
+Figure 11: EBSD of Ck45: top (top row) and side (bottom row) surface pole figure.
+
+
+
+
+                                       10
+2.5. Tensile Tests
+
+In the following, tensile test results on this batch of materials are summarized from [19]. The
+tensile tests are performed for both materials, Ck45 and Ti6Al4V, at room temperature for
+three different strain rates (ε̇pl = 0.002 s−1 , 0.1 s−1 , 0.15 s−1 ) and each repeated three times.
+The tensile test specimen are produced from the inner core of the cylinders according to
+DIN50125 [8] with form B and the dimensions B8x40. The tensile tests are used to fit
+material parameters for the work hardening and strain rate sensitivity part of the Johnson-
+Cook flow stress model [16]:
+
+                                                                        !!                        m 
+                                       n                        ε̇pl                    T − Tref
+              σy = (A + B · (εpl ) )           1 + C · ln                      1−                          (1)
+                   |     {z        }                            ε̇0pl                   Tf − Tref
+                      work hardening       |            {z               } |              {z           }
+                                               strain rate sensitivity          thermal softening
+
+
+
+where A, B, C, m and n are material dependent parameters, εpl is the equivalent plastic
+strain, ε̇pl the plastic strain rate, T the temperature, Tf the melting temperature and Tref
+the reference temperature of the material tests. Tests at temperatures higher than room
+temperature are not carried out, therefore the parameter m leaves undetermined. The pa-
+rameters A, B, C and n are determined with the procedure in [20]. The strain rate sensitivity
+parameter C is valid only at very low strain rates, as the tests are conducted in the strain
+rate range from 0.002 s−1 to 0.15 s−1 . The obtained Johnson-Cook parameters are given in
+table 6 and the approximated flow curves are given in Figure 12 for Ti6Al4V and Ck45. The
+curve fits of the strain rate sensitivities are shown in Figure 13.
+
+                      Material     A [MPa]         B [MPa]         n [-]   ε̇ref
+                                                                             pl [s]       C [-]
+                      Ti6Al4V        867             344           0.361    0.002        0.0145
+                       Ck45          392             735           0.304    0.002        0.0108
+
+Table 6: Ti6Al4V and Ck45: fit of the work hardening parameters A, B and n and the strain rate sensitivity
+C of the JC flow stress model (1).
+
+
+
+
+Figure 12: Fit of the Johnson-Cook parameters A, B and n for quasi-static conditions (ε̇pl = 0.002s−1 ) for
+Ti6Al4V (left) and Ck45 (right).
+
+
+
+
+                                                         11
+Figure 13: Fit of the Johnson-Cook strain rate sensitivity parameter C for Ti6Al4V (left) and Ck45 (right).
+
+
+2.6. Cutting Tests
+
+For the machining test, thin-walled cylinders with a diameter of D ≈ 72 mm and a wall
+thickness of d ≈ 2 mm are turned longitudinally on a Schaublin 42L CNC lathe. This
+emulates an orthogonal cut closely. The cylinders are turned inside and outside from the raw
+workpieces in the same clamping setup. The machining of the outer surfaces removes the
+scaling and the decarburated zone of the Ck45. The setup with a cylinder in place is shown
+in Figure 15 together with the experimental setup for the orthogonal cutting tests. Forces are
+measured using a Kistler 9121A5 dynamometer in combination with a Kistler 5019A charge
+amplifier and digitalized with a NI USB-6211 data acquisition system. The signal is low-pass
+filtered with a cut-off frequency of 30Hz before being sampled with 1.1 kHz. Offset and drift
+in the measured force signal F̃meas are corrected after the measurement since small drifts
+F̃drif t in the signal can occur and overlay the process forces F̃proc :
+
+
+                                         F̃proc = F̃meas − F̃drif t                                    (2)
+
+The drift F̃drif t of the force is evaluated by positioning the cutter before the cut with a distance
+of one mm away from the cylinder to cut. With the desired feed rate of the experiment
+the cutter approached the workpiece and during this time the idle-forces F̃drif t = F̃idle are
+recorded and then used to correct to force signals with (2). A schematics of this correction
+is shown in Figure 14.
+
+
+
+
+                                                    12
+                              Figure 14: Force signal overlayed with a drift.
+
+
+High speed camera recordings are conducted for the first cutting tests with a Phantom V12.1
+camera using an endoscope, see the cutting setup in Figure 15. References to these records
+are linked in the result tables B.14 and B.15. In order to simplify numerical modelling, the
+experiments are performed as dry cuts without the use of a lubricant. To date no viable
+approach for considering coolant and lubricant in numerical modeling exists, and the use of
+dry sections reduces the number of unknown parameters. Each combination of feed f and
+cutting speed vc is usually tested three times to ensure results quality and repeatability. For
+each test an unused cutting edge is used and test durations are kept short so that wear stays
+insignificant.
+
+
+
+
+Figure 15: Quasi-orthogonal cutting setup: cylinder with cutting insert (left and middle), cutting plane in
+2D (right).
+
+Uncoated turning inserts Sandvik Coromant CCMW 09T304 H13A (ISO) are used for the
+cutting experiments. The main geometrical data of the inserts are given in table 7 and
+pictures of the turning insert geometry are provided in Figure 16.
+
+       Edge       Cutting edge    Inscribed   Cutting edge    Clearance     Rake       Cutting edge
+     radius RE      height S      circle IC    length LE       angle α     angle γ        radius
+     0.397mm       3.969mm        9.525mm       9.272mm          7◦          0◦      see chapter 2.6.1
+
+         Table 7: Main geometry data of Sandvik Coromant CCMW 09T304 H13A (ISO) inserts.
+
+The cutting edge radii along the cutting edge length LE result from the sintering process and
+exhibit a certain scatter. Since these radii have a significant impact on the process forces,
+they are optically measured, see details in chapter 2.6.1. An Applitec SCACL-2020X-09 tool
+
+                                                    13
+holder (ISO-2216) is used, which has an entering angle ξ = 90° and an inclination angle
+κ = 0°. Each insert is used for four cutting experiments (two cuts per side of the insert)
+where after every experiment another position A-D was used on the insert. These four cut
+positions A-D are shown in Figure 16.
+
+
+
+
+Figure 16: Cutting insert geometry (left) from [32] and four cut positions A-D (right) for cutting experiments,
+from [19].
+
+
+
+
+Figure 17: Cutting insert with cut positions A and B showing start and endpoints of the cutting edge, shortest
+distances from the corners to the beginning of the cutting zones and width of cuts.
+
+
+
+2.6.1. Determination of Cutting Edge Radii
+
+The shape of the cutting insert, especially the cutting edge radius, have a major influence on
+the process forces of the turning operation. Albrecht [1] showed for steel that with increasing
+cutting edge radius the feed force Ff increases strongly and the cutting force Fc increases
+moderately. The effect becomes more pronounced with higher feeds. Wyen [38] conducted a
+similar investigation for Ti6Al4V revealing comparable influences on the process forces, see
+Figure 18.
+
+
+                                                      14
+Figure 18: Influence of cutting edge radius rn and feed f on the cutting and feed forces for turning of
+Ti6Al4V. The forces are standardised to a cut width of b = 1 mm, the cut speed was vc = 70 m/min, the rake
+angle γ = 10◦ and the clearance angle α = 8◦ according to measurements from [38].
+
+
+The inserts in this investigation have an unspecified cutting edge radius and therefore all
+cutting edges (2 x 149 inserts) of the cutting inserts are optically measured with an Alicona
+InfiniteFocusG4 microscope prior to the cut tests in an unused condition. With the focus
+variation principle [6, 21], 3D data of the scanned surfaces are generated, where a 20x mag-
+nification with 0.5 µm vertical and 7 µm lateral resolution is used to scan along the complete
+cutting edge length (LE). Initially a scan depth of 60 µm was used but since in some positions
+cutting edge radii of about 50 µm appeared, it was then later increased to 400 µm. Before
+the cutting edge radii determination the scanned 3D data is reworked. In a first step single
+peaks (measurement artefacts) are removed. This is followed by the determination of the left
+and right endpoints of the cutting edge (LE) between the corner radii for which height profile
+gradients are evaluated. In between these two points the cutting edge radii are analyzed
+and they serve as reference points for the exact determination of the cut position after the
+experiments.
+
+The determination of the cutting edge radii follows the procedures outlined in [23, 40] in
+order to ensure reproducibility of the results. A total of about 1’275’000 cutting edge radii
+(> 4000 radii per cutting edge) are extracted from the scans. Over all 149 cutting inserts,
+the cutting edge radius along LE varies between ≈ 20 µm and ≈ 50 µm. The variation of
+the cutting edge radius along one cutting edge length LE can be significant, as for instance
+shown in Figure 20, where it varies between rn ≈ 25 µm and rn ≈ 50 µm. The mean cutting
+edge radius is 37.5 µm with a standard deviation 4.9 µm. The scatter of the radius is the
+reason, why the exact cutting edge radius was determined after the experiments, when the
+location of the cut on the cutting edge is known for every insert and its four cut positions
+A-D. The insert’s edge radii serve as reference points to determine the start point of the cut
+positions. From this start point the cutting edge radii are averaged along the cut width of
+≈ 2 mm. Its averaged values along the cut width, including the standard deviation, are given
+for each cutting experiment in tables B.14 and B.15. Histogram plots of the cutting edge
+
+
+                                                   15
+length LE and the cutting edge radii are given in Figure 19. The length of the cutting edge
+LE varies between ≈ 8.7 mm and ≈ 8.95 mm which is inline with the tolerance class of the
+selected inserts.
+
+
+
+
+Figure 19: Histogram of cutting edge lengths LE (left) and cutting edge radii (right) over all cutting inserts.
+
+
+
+
+Figure 20: Example of cutting edge radii variation along a single cutting edge, with averaged cutting edge
+radii at cut positions A and B.
+
+
+
+2.6.2. Chip Thickness Measurements
+
+At least one chip from the three repetitions of each set of feed f and cut speed vc is embedded,
+ground (120, 240, 500, 1000, 2500, 4000) and polished (6µm, 3µm, 1µm). After polishing, the
+chips are etched with Kroll (Ti6Al4V) and Nital (Ck45). The geometry and microstructure
+are then analysed with a Keyence VHX-5000 microscope. The main dimensions which are
+measured are the chip area Achip and the unrolled chip length lchip , see Figure 21, from which
+the average chip thickness havg is computed as:
+
+                                                      16
+                                                      Achip
+                                             havg =                                                (3)
+                                                      lchip
+
+
+
+
+Figure 21: Measurement of average chip thicknesses havg by the chip area Achip and unrolled chip length
+lchip .
+
+
+2.6.3. Test Plan
+Orthogonal cutting tests are conducted for a large range of feed and cutting speeds. Each
+experimental set is repeated three times to ensure the reproducibility of the results. In total
+520 cutting tests are conducted, of which 288 are for Ti6Al4V and 232 for Ck45, respectively.
+The parameter ranges are given in table 8 and all combinations of feed f and cutting speeds
+vc which are used in the cutting experiments of Ti6Al4V and Ck45 are displayed in Figure
+22.
+                  Material    Cutting speed vc [m/min]        Feed rate f [mm/rev]
+                  Ti6Al4V             10...500                      0.01...0.4
+                   Ck45               10...500                      0.01...0.4
+                                Table 8: Test matrix of the cutting tests
+
+
+
+
+         Figure 22: Process parameter combinations used in the orthogonal cutting experiments.
+
+
+
+3. Results
+
+Tables A.12 and A.13 in the appendix list the process parameters for each experiment ID
+and indicates for which experiments chip thicknesses are measured and for which etched
+
+                                                   17
+samples are documented. The complete cutting test results are provided for Ti6Al4V in
+table B.14 and for Ck45 in table B.15 in the Appendix B. The process forces Fc and Ff
+are normalized to a cutting width of w = 1mm and are given together with their respective
+standard deviations σFc and σFf . The next two columns contain the averaged cutting edge
+radius rn and its standard deviation σrn , followed by the average chip thickness havg and its
+standard deviation σhavg (if more than one chip is evaluated), the cutting distance lcut and
+the temperature of the chip Tchip derived from the tempering color (only Ck45). The last
+two columns contain a qualitative statement of the tool wear and the quality of the process
+forces measurement.
+
+
+3.1. Process Forces
+
+The experimentally measured process forces are displayed in in Figure 23 for Ti6Al4V and
+in Figure 24 for Ck45. The colour of the dots indicates the cutting edge radius rn or cutting
+speed vc of the respective experiment. For Ti6Al4V, cutting and feed force increase with
+increasing feed. The cutting forces Fc tend to increase with increasing cutting edge radius
+rn but decrease towards higher cutting speed vc . The feed force Ff increases as well with
+increasing rn , but increasing vc leads to higher forces only until feeds around f = 0.1 mm.
+
+The Ck45 exhibits a complex behaviour: the process forces increase as well with increasing
+feed but dependencies on the cutting edge radius rn or cutting speed vc are not obvious.
+Instead, at a constant feed the process forces first increase from very low to medium cutting
+speeds (vc ≈ 100 m/min) and then start to drop to similar low forces as with very low cutting
+speeds, see for example the feed forces at f = 0.1 mm in Figure 24.
+
+
+
+
+                                             18
+Figure 23: Process forces Ti6Al4V cutting experiments, cutting (left column) and feed force component (right
+column) depending on the feed f , the colour depicts the cutting edge radius rn (top row) and the cutting
+speed vc (bottom row) of the experiment.
+
+
+
+
+                                                    19
+Figure 24: Process forces Ck45 cutting experiments, cutting (left column) and feed force component (right
+column) depending on the feed f , the colour depicts the cutting edge radius rn (top row) and the cutting
+speed vc (bottom row) of the experiment.
+
+
+
+
+                                                   20
+3.2. Chip Shapes
+
+At least one chip sample of every feed rate and cutting speed combination is etched. In the
+following a small selection is shown for Ti6Al4V and Ck45. For Ti6Al4V, chips in a feed range
+of f = 0.01mm, 0.1mm and 0.2mm and at cutting speeds of vc = 11, 40, 191 and 381m/min
+are displayed in table 9. All chips show chip segmentation where towards higher feed f and
+higher cutting speed vc the segmentation becomes more pronounced. In all Ti6Al4V cutting
+experiments chip segmentation occurred, but traces of the effect of built-up edges (BUE)
+cannot be identified on any of the chips.
+
+ f [mm/rev]                 0.01                             0.1                             0.2
+ vc [m/min]
+
+
+     11
+
+
+
+
+     40
+
+
+
+
+     100
+
+
+
+
+     381
+
+
+
+
+Table 9: Ti6Al4V: Chip overview of selected experiments with the chip flow direction in all images from right
+to left. Towards higher cuttings speed and higher feed rates the chip segmentation becomes more pronounced.
+
+For Ck45, chips in a feed range of f = 0.02mm, 0.06mm and 0.1mm and at cutting speeds
+of vc = 10, 50, 150 and 450m/min are displayed in table 10. Ck45 chips show BUE traces
+in the chips up to vc = 50m/min at all three feed levels, while at vc = 150m/min only
+for f = 0.02mm BUE is visible and for vc = 450m/min no BUE is visible at all. At
+higher cutting speeds and higher feeds of the Ck45 cutting experiments the BUE-formation
+diminishes, while chips segmentations start to form, see Figure 25.
+
+
+
+
+                                                     21
+ f [mm/rev]                0.02                            0.06                            0.1
+ vc [m/min]
+
+
+
+     10
+
+
+
+
+     50
+
+
+
+
+     150
+
+
+
+
+     450
+
+
+
+
+Table 10: Ck45: Chip overview of selected experiments with the chip flow direction in all images from right
+to left. Towards higher cuttings speed and higher feed rates chip segmentation starts to form, while traces
+of BUE diminish and disappear.
+
+
+
+
+Figure 25: Built-up edge formation (left) and chip segmentation (right) in Ck45 depending on cutting speed
+vc and feed f .
+
+
+
+
+                                                    22
+3.3. Chip Thicknesses
+
+At least one chip of each combination of feed and cutting speed is embedded in Bakelite for
+the manual measurement of havg using the method described in chapter 2.6.2. The measured
+thicknesses are documented in the result tables B.14 (Ti6Al4V) and B.15 (Ck45). The
+average chip thicknesses show high scatter for Ti6Al4V and Ck45. For this reason trendlines
+are created for some selected feeds using the Savitzky-Golay filter [33] in SciPy [37]. A trend
+of decreasing chip thicknesses towards an increase of the cutting speed vc at constant feed
+rate f is visible for both, Ti6Al4V and Ck45, see Figures 26 and 27, respectively. In case of
+Ck45, an initial increase of the average chip thickness with increasing cutting speed for feed
+rates f ≥ 0.04 mm is seen. However, upon further increase of the cutting speed, the average
+chip thickness decreases again. The cutting speed at which the behaviour reverses is not
+constant for all feed rates: as the feed increases, the maximum of the average chip thickness
+moves towards smaller cutting speeds vc .
+
+
+
+
+Figure 26: Measured average chip thicknesses of Ti6Al4V for different feeds f and varying cuttings speeds
+vc . Evaluation for selected feed rates (left) and interpolated contour plot (right).
+
+
+
+
+Figure 27: Measured average chip thicknesses of Ck45 for different feeds f and varying cuttings speeds vc .
+Evaluation for selected feed rates (left) and interpolated contour plot (right).
+
+The measured chip thicknesses show some scatter, the reasons could be due to:
+
+   • the manual measurement procedure,
+   • misalignments of chips in the embedding procedure because the chips are curled not
+     only in feed direction but also due to the cylinder radius and
+
+                                                    23
+    • low stiffness of thinner chips which could lead to skewing and therefore larger effective
+      cross-sections after embedding.
+
+
+The low stiffness of thinner chips prevented as well from the large scale evaluation of chip
+curling radii.
+
+
+3.4. Friction Coefficient
+
+The measured process forces in the cutting experiments can be used to deduce friction coeffi-
+cients. The simplest estimation is based on the ratio of tangential and normal forces exerted
+on the tool, also known as apparent friction coefficent µapp . It is given according to Merchant
+[25, 26] as:
+
+                                                  Ff + Fc · tanγ
+                                         µapp =                                                         (4)
+                                                  Fc − Ff · tanγ
+
+with Ff and Fc being the feed and cutting components of the process forces and γ being the
+rake angle. The drawback of the apparent friction coefficient µapp is the neglection of the
+cutting edge radius influence assuming an ideal sharp tool (perfect wedge). The apparent
+friction coefficients are shown for Ti6Al4V cutting experiments in Figure 28. Towards higher
+feeds the apparent friction coefficient decreases to levels of µapp ≈ 0.4..0.6. Especially at very
+low feeds the cutting speed has a dominating influence on µapp while with increasing f the
+cutting edge radius rn becomes more important.
+
+
+
+
+Figure 28: Apparent friction coefficients µapp versus feed f for Ti6Al4V . The colour indicates the cutting
+speed vc (left) and the cutting edge radius rn (right). µapp decreases with increasing feed f and decreasing
+cutting speed vc .
+
+The apparent friction coefficients of the Ck45 cutting experiments are shown in Figure 29.
+The cutting edge radius rn plays no obvious role in µapp , but for very low f and increasing
+cutting speed vc an increase in µapp is visible which then drops upon further increases in
+vc . This behaviour is likely due to a change in BUE-formation and chip segmentation which
+changes towards increasing f and vc , see also Figure 25.
+
+                                                    24
+Figure 29: Apparent friction coefficients µapp versus feed f for Ck45. The colour indicates the cutting speed
+vc (left) and the cutting edge radius rn (right). A dependency on the cutting edge radius rn is not visible,
+while for very low f and increasing cutting speed vc an increase in µapp is visible which then drops upon
+further increases in vc . This behaviour is likely due to a change in BUE-formation and chip segmentation.
+
+
+A more elaborated approach for the determination of the friction coefficient from cutting ex-
+periments is described by Albrecht [1], considering the ploughing effect due to finite sharpness
+effect in the determination of the friction coefficient µf r :
+
+
+                                        (Ff − Fpl,f ) + (Fc − Fpl,c ) · tanγ
+                               µf r =                                                                    (5)
+                                        (Fc − Fpl,c ) + (Ff − Fpl,f ) · tanγ
+
+with Fpl,c and Fpl,f being the ploughing force components exerted in normal and feed direc-
+tion. The friction coefficient µf r equals the slope in a Ff − Fc - plot where at higher feeds
+ploughing effects diminish since the ratio of the cutting edge radius rn to the feed f becomes
+very small. Using the measured process forces of all Ti6Al4V-experiments, the trend in Fig-
+ure 30 becomes visible from which the friction coefficient can be estimated as µf r = 0.3.
+Similarly, for Ck45 the friction coefficient is about µf r = 0.78, which is a very high value
+and most likely inaccurate due to changes in BUE-formation and chip segmentation. It is
+emphasized that a more credible deduction of friction coefficients requires cutting tests with
+specially prepared cutting edge radii rn as for example used in [39]. Alternatively, in-process
+tribometer can be used for the determination of the friction coefficient [24] directly on the
+fresh cut surface.
+
+
+
+
+                                                     25
+Figure 30: Friction coefficient µf r estimation based on Albrecht [1] for Ti6Al4V (left) and Ck45 (right). The
+estimated friction coefficient for Ck45 is very high and most likely inaccurate due to changes in BUE-formation
+and chip segmentation.
+
+
+3.5. Tempering Colours
+
+During the cutting, the temperature in the chips increases due to plastic dissipation in the
+primary shear zone and friction in the secondary shear zone. In the case of the Ck45,
+these temperature increases lead to visible tempering colours in the chips, which can be
+matched to tabulated values [11]. The tempering colours can indicate temperatures as low
+as Tmin = 200◦ and as high as Tmax = 360◦ C. All Ck45 chips are manually analysed and the
+tempering colour dependence on the cutting speed is shown for selected feeds together with
+interpolated contour plots in Figure 31. At low cutting speeds, temperatures are in the order
+of the maximum temperatur Tmax = 360◦ C. With increasing cutting speed the temperatures
+first reduces to levels below T = 300◦ C between vc = 100..200m/min. In cutting speed
+ranges of vc ≈ 200..450m/min the temperatures increase to Tmax ≈ 360◦ followed by a
+temperature reduction when the cutting speed is increased beyond vc ≈ 450m/min. A
+possible explanation of this effect is a change in the chip formation mechanism see chapter
+3.2 and Figure 25.
+
+
+
+
+Figure 31: Estimated Ck45 chip temperatures based on tempering colours for different feeds f and varying
+cuttings speeds vc . Evaluation for selected feeds (left) and interpolated contour plot (right) with black dots
+denoting the experimental data points which have been used for the interpolation.
+
+
+
+
+                                                      26
+3.6. Tool Wear
+
+The tool wear depends on the feed, cutting speed and the amount of material removed at these
+parameters. For each cutting experiment the tool wear is visually inspected and qualitatively
+classified into three categories:
+
+
+   • Low (L): no or very few remains of material sticking to the rake and/or clearance face
+     of the cutter
+
+   • Medium (M): beginning crater wear, material built-up on rake and/or clearance face
+
+   • High (H): heavy crater wear, cutting edge worn, large material built-up
+
+
+Examples of different tool wear classifications are shown in 32. The tool wear classification
+is given for each experiment in the result tables B.14 (Ti6Al4V) and B.15 (Ck45).
+
+
+
+
+Figure 32: Wear classification of the cutter inserts: examples for low (top), medium (middle) and high
+(bottom) wear. The text in yellow colour depicts the corresponding experiment number.
+
+
+
+3.7. Kienzle Coefficients
+
+The Kienzle-Victor process force model [18] is an empirical equation that relates the cutting
+force Fc to the cut width b, uncut chip thickness h and a factor kc which is the cutting force
+per unit area:
+
+
+                                     Fc = kc · ap · f = kc · b · h                                (6)
+
+All effects of the process conditions like cutting speed, tool geometry as well as workpiece
+and tool material are contained in kc . It was found by Kienzle that the cut width b scales
+linearly with the cutting force while the uncut chip thickness scales with a power law, where
+kc1.1 is the specific cutting force at b = h = 1 mm:
+
+
+                                                  27
+                                           Fc = kc1.1 · h1−mc                                      (7)
+
+The model can be extended to to feed and passive force as well [22]:
+
+
+
+                                         Ff = kf 1.1 · h1−mf                                       (8)
+                                         Fp = kp1.1 · h1−mp                                        (9)
+
+
+In quasi-orthogonal cutting the passive force component is Fp ≈ 0 and therefore equations
+(7) and (8) are used to determine the Kienzle-coefficients kc1.1 (vc ), kf 1.1 (vc ) and the respective
+exponents mc (vc ), mf (vc ) at different cutting speeds for Ti6Al4V and Ck45. For this purpose
+kc and kf are computed from the process forces and are extrapolated to f = 1mm for each
+cutting speed. Examples of such extrapolations are shown in Figure 33 for two different
+cutting speeds.
+
+
+
+
+Figure 33: Kienzle coefficient determination for Ti6Al4V at cutting speeds of vc = 70m/min (left) and
+vc = 150m/min (right).
+
+Figure 34 shows the dependencies of the Kienzle-coefficients on the cutting speed for Ti6Al4V.
+The corresponding values are supplied in table C.16 in the Appendix C. Towards higher
+cutting speeds the specific cutting and feed force coefficients reduce, while the exponents
+mc , mf increase.
+
+
+
+
+                Figure 34: Kienzle coefficients for Ti6Al4V and various cutting speeds vc .
+
+
+                                                    28
+For Ck45, the specific cutting and feed force coefficients slightly reduce until cutting speeds
+of vc = 150m/min, followed by an increase towards vc = 300m/min and reduce from thereon
+strongly. The increase around vc = 300m/min is possibly induced by the dynamic strain
+aging (DSA) phenomenon [4, 5, 27]. Figure 35 shows the dependencies of the Kienzle-
+coefficients on the cutting speed for Ck45. The corresponding values are supplied in table
+C.17 in the Appendix C.
+
+
+
+
+                Figure 35: Kienzle coefficients for Ck45 and various cutting speeds vc .
+
+
+
+3.8. Data Storage
+
+The data is stored in the pCloud and contains process force measurement data, cutting edge
+radii scans, pictures of chip geometries and etched chips, see the respective links in table 11.
+
+ Data                     Saving location                              Comment
+ Process forces               pCloud           data format: time [s], Fp [N/mm], Ff [N/mm], Fc [N/mm]
+ Cutting edge scans           pCloud          new inserts, informations in CutPositionsOnCuttingEdge.xls
+ Chip images¸                 pCloud                                    overview
+ Chip images (polished)       pCloud                               microscope images
+ Chip images (etched)         pCloud                 microscope images with chip microstructures
+
+                 Table 11: Data storage of the quasi-orthogonal cutting experiments.
+
+
+
+
+4. Conclusions
+
+Large scale dry quasi-orthogonal cutting experiments have been conducted for Ti6Al4V and
+Ck45. Prior to the cutting tests a material characterization was conducted revealing:
+
+
+   • uniform hardness profiles in hardness measurements,
+
+   • uniform grain structures in etched samples,
+
+   • average grain diameters in the order of Dg ≈ 9..10µm for Ti6Al4V and Dg ≈ 14..18µm
+     for Ck45 and
+
+   • yield strengths in the order of σy = 867M P a for Ti6Al4V and σy = 392M P a for Ck45.
+
+                                                  29
+Johnson-Cook flow stress model coefficients were given for the work hardening and strain
+rate sensitivity part, where the latter is valid only for very low strain rates. Since the tensile
+tests were conducted at room temperature, the temperature dependent part of the JC-law
+was not fitted.
+
+Each cutting experiment was performed with a pristine cutting edge such that wear effects
+on the measured process forces could mostly be neglected. Since the cutting edge radius
+influences the process forces, every cutting edge was measured prior to the cutting tests, such
+that the average cutting edge radius could be retrieved at the respective cutting position.
+
+For Ti6Al4V, the influence of the cutting edge radius on the measured process forces could
+be shown. Ploughing effects on the process forces were visible towards lower feeds. A friction
+coefficient of about µf r ≈ 0.3 was estimated based on the process forces depending on the
+feed rates. Chip segmentations were found at all tested combinations of feeds and cutting
+speeds.
+
+In the Ck45 cutting experiments a direct correlation of the cutting edge radius with the
+process forces is not visible. This is induced due to changing physics, e.g. dynamic strain
+aging, of the chip formation at different feeds and cutting speeds, where at lower values
+evidence for built-up edge formation was found on the chips and towards higher values chip
+segmentations occured. The friction is not just depending on the feed, but also on the cutting
+speed where at medium cutting speeds the friction is higher than at very low and very high
+cutting speeds.
+
+The measurement of chip thicknesses came along with scatter of the measured values, poten-
+tial reasons for this scatter are:
+
+
+   • the manual measurement procedure,
+
+   • misalignments of chips in the embedding procedure because the chips are curled not
+     only in feed direction but also due to the cylinder radius and
+
+   • low stiffness of thinner chips which could lead to skewing and therefore larger effective
+     cross-sections after embedding.
+
+
+The low stiffness of thinner chips prevented as well from the large scale evaluation of chip
+curling radii. Chip curling with the cylinder radius can be prevented by using a planing setup
+which is the best approximation to orthogonal cutting at the expense of lower maximum
+cutting speeds in the order of up to vc = 30m/min.
+
+
+5. Acknowledgements
+
+The authors would hereby like to thank Adrian Fuhrer, Igor Podjanin, Knut Krieger, Matthias
+Röthlin, Mohamadreza Afrasiabi, Fabian Kneubühler, Moritz Wiessner, Mikhail Klyuev,
+Sandro Wigger, Albert Weber, Christoph Baumgart, Lukas Seeholzer, the IVP institute at
+ETH Zürich, Dr. Thomas Tancogne-Dejean (ETH) for the help with the EBSD images and
+the Swiss National Science Foundation (SNF) for the financial support under Grant No.
+200021-149436.
+
+                                               30
+Appendix A. Test Overview
+
+Tables A.12 and A.13 contain the cutting experiment numbers sorted according to feed
+(columns) and cutting speeds (rows) for Ti6Al4V and Ck45, respectively. The cutting exper-
+iment numbers can be used to find more information of the respective experiment in tables
+B.14 and B.15. The colouring of the experiment number indicates:
+
+
+   • black: no chip thickness measurement available,
+
+   • orange: chip thickness measurement available,
+
+   • green: chip thickness measurement and etched chip picture available.
+
+
+
+
+                                           31
+       f [mm/rev]   0.01     0.02     0.03     0.04     0.06     0.08     0.1      0.12     0.15     0.2      0.4
+       /
+       vc [m/min]
+       10.0                  V0301,                     V0304,            V0307,
+                             V0302,                     V0305,            V0308,
+                             V0303                      V0306             V0309,
+                                                                          V0319
+       11.0         V0001,                                                V0005,                     V0010,
+                    V0003,                                                V0007,                     V0012,
+                    V0014                                                 V0016,                     V0020
+                                                                          V0018
+       13.0         V0002,                                                V0004,                     V0011,
+                    V0013,                                                V0006,                     V0019,
+                    V0015                                                 V0008,                     V0021
+                                                                          V0009,
+                                                                          V0017
+       20.0         V0320,   V0356,            V0323,   V0374,   V0359,   V0326,   V0377,   V0362,   V0380,
+                    V0321,   V0357,            V0324,   V0375,   V0360,   V0327,   V0378,   V0363,   V0381,
+                    V0322    V0358             V0325    V0376,   V0361    V0328    V0379    V0364    V0382
+                                                        V0392
+       40.0         V0338,                     V0341,   V0480,            V0344,            V0483,   V0486,
+                    V0339,                     V0342,   V0481,            V0345,            V0484,   V0487,
+                    V0340                      V0343    V0482             V0346             V0485    V0488
+       50.0                  V0310,            V0393,   V0313,   V0396,   V0316,            V0399,   V0414,
+                             V0311,            V0394,   V0314,   V0397,   V0317,            V0400,   V0415,
+                             V0312             V0395    V0315    V0398    V0318             V0401    V0416
+       52.0                  V0417,                              V0420,            V0423,
+                             V0418,                              V0421,            V0424,
+                             V0419                               V0422             V0425
+       60.0                  V0435,                                       V0438,                     V0441,
+                             V0436,                                       V0439,                     V0442,
+                             V0437,                                       V0440                      V0443
+                             V0444,
+                             V0445
+       70.0                                    V0402,   V0383,   V0405,   V0411,   V0386,   V0408,   V0389,
+                                               V0403,   V0384,   V0406,   V0412,   V0387,   V0409,   V0390,
+                                               V0404    V0385    V0407    V0413    V0388    V0410    V0391
+       74.0         V0022,                                                V0026                      V0028,
+                    V0024                                                                            V0030
+       80.0                  V0446,                                       V0447,                     V0450,
+                             V0453,                                       V0448,                     V0451,
+                             V0454                                        V0449                      V0452
+       89.0         V0023                                                 V0025,                     V0029
+                                                                          V0027
+       100.0        V0329,   V0365,            V0332,   V0498,   V0368,   V0335,   V0501,   V0371,   V0504,
+                    V0330,   V0366,            V0333,   V0499,   V0369,   V0336,   V0502,   V0372,   V0505,
+                    V0331    V0367             V0334    V0500    V0370    V0337    V0503    V0373    V0506
+       125.0        V0347,                     V0350,   V0489,            V0353,            V0492,   V0495,
+                    V0348,                     V0351,   V0490,            V0354,            V0493,   V0496,
+                    V0349                      V0352    V0491             V0355             V0494    V0497
+       150.0                 V0516,   V0519,            V0507,            V0455,   V0510,            V0513,
+                             V0517,   V0520             V0508,            V0456,   V0511,            V0514,
+                             V0518                      V0509             V0457    V0512             V0515
+       159.0        V0032                                                 V0034                      V0037,   V0041
+                                                                                                     V0039
+       162.0                 V0426,                              V0429,            V0432,
+                             V0427,                              V0430,            V0433,
+                             V0428                               V0431             V0434
+       191.0        V0031,                                                V0035                      V0038    V0040,
+                    V0033                                                                                     V0042
+       200.0                                                              V0458,
+                                                                          V0459,
+                                                                          V0460
+       212.0        V0043,                                                V0047,                     V0051    V0053,
+                    V0045                                                 V0049                               V0055
+       254.0        V0044,                                                V0048                      V0050,   V0054
+                    V0046                                                                            V0052,
+                                                                                                     V0068
+       318.0        V0057                                                 V0059,                     V0063    V0065,
+                                                                          V0061                               V0067
+       381.0        V0056,                                                V0060                      V0062,   V0066
+                    V0058                                                                            V0064
+       400.0        V0461,   V0464,   V0467,   V0470,
+                    V0462,   V0465,   V0468,   V0471,
+                    V0463    V0466    V0469    V0472
+       500.0        V0473,   V0476,                                       V0479
+                    V0474,   V0477,
+                    V0475    V0478
+
+
+
+
+Table A.12: Ti6Al4V: Overview of process parameter combinations and according test numbers.
+
+
+
+
+                                                           32
+f [mm/rev]   0.01     0.02     0.04     0.06     0.08     0.1        0.12     0.15     0.18     0.2      0.22     0.4      1.0
+/
+vc [m/min]
+10.0         V0069,   V0176,   V0215,   V0179,   V0218,   V0072,              V0182,            V0075,
+             V0070,   V0177,   V0216,   V0180,   V0219,   V0073,              V0183,            V0076,
+             V0071,   V0178    V0217    V0181    V0220    V0074               V0184             V0077,
+             V0212,                                                                             V0078
+             V0213,
+             V0214
+30.0                  V0102,   V0120,   V0105,            V0123,              V0108,            V0126,                     V0138
+                      V0103,   V0121,   V0106,            V0124,              V0109,            V0127,
+                      V0104    V0122    V0107             V0125               V0110             V0128
+50.0         V0252,   V0139,   V0157,   V0142,   V0255,   V0160,     V0258,   V0145,   V0270,   V0163,   V0274,
+             V0253,   V0140,   V0158,   V0143,   V0256,   V0161,     V0259,   V0146,   V0271,   V0164,   V0275,
+             V0254    V0141    V0159    V0144    V0257    V0162      V0260    V0147    V0272,   V0165,   V0276
+                                                                                       V0273    V0295,
+                                                                                                V0296,
+                                                                                                V0297
+70.0         V0079,   V0185,            V0188,            V0082,              V0191,            V0086,
+             V0080,   V0186,            V0189,            V0083,              V0192,            V0087,
+             V0081    V0187             V0190             V0084,              V0193             V0088,
+                                                          V0085                                 V0089
+100.0                 V0111,   V0129,   V0114,            V0132,              V0117,            V0135,
+                      V0112,   V0130,   V0115,            V0133,              V0118,            V0136,
+                      V0113    V0131    V0116             V0134               V0119             V0137
+150.0        V0090,   V0148,   V0166,   V0151,            V0093,              V0154,            V0096,            V0099,
+             V0091,   V0149,   V0167,   V0152,            V0094,              V0155,            V0097,            V0100,
+             V0092    V0150,   V0168    V0153             V0095,              V0156             V0098,            V0101
+                      V0175                               V0169,                                V0172,
+                                                          V0170,                                V0173,
+                                                          V0171                                 V0174
+200.0        V0194,   V0277,   V0197,   V0280,   V0200,   V0283,
+             V0195,   V0278,   V0198,   V0281,   V0201,   V0284,
+             V0196    V0279    V0199    V0282    V0202    V0285
+250.0        V0261,   V0230,            V0233,   V0264,   V0236,     V0267,
+             V0262,   V0231,            V0234,   V0265,   V0237,     V0268,
+             V0263    V0232             V0235    V0266    V0238      V0269
+300.0        V0203,            V0206,            V0209,
+             V0204,            V0207,            V0210,
+             V0205             V0208             V0211
+350.0        V0221,   V0239,   V0224,   V0242,   V0227,   V0245,              V0248,
+             V0222,   V0240,   V0225,   V0243,   V0228,   V0246,              V0249,
+             V0223    V0241    V0226    V0244    V0229    V0247               V0250
+450.0                 V0286,            V0289,            V0292,
+                      V0287,            V0290,            V0293,
+                      V0288             V0291             V0294
+500.0                 V0251                               V0298,
+                                                          V0299,
+                                                          V0300
+
+
+
+
+ Table A.13: Ck45: Overview of process parameter combinations and according test numbers.
+
+
+
+
+                                                                33
+Appendix B. Experimental Results
+
+The complete cutting test results are provided for Ti6Al4V (V0001-V0068, V0301-V0520)
+in table B.14 and for Ck45 (V0069-V0300) in table B.15 below. Blue coloured experiment
+numbers contain a link to a high-speed camera video of that test. The process forces Fc and
+Ff are normalized to a cutting width of w = 1mm and are given together with their respective
+standard deviations σFc and σFf . The next two columns contain the averaged cutting edge
+radius rn and its standard deviation σrn , followed by the average chip thickness havg and its
+standard deviation σhavg (if more than one chip is evaluated), the cutting distance lcut and
+the temperature of the chip Tchip derived from the tempering color (only Ck45). The last
+two columns contain a qualitative statement of the tool wear and Status judges the quality
+of the process forces measurement. Tests labelled with ok are without any objections. Tests
+labelled short have to be treated with care as such experiments should be repeated with a
+longer cutting distance in order for the process forces to reach a stable value. If however the
+standard deviations in the process forces of such tests are small, they still can be considered
+as valid. Results from tests labelled questionable or initially stable should not be used for
+parameter identifications while tests labelled with saturation ran into the amplifier limits
+and are therefore invalid for further use. Tests marked instable are most likely of insufficient
+quality and must not be used for parameter identifications as well. Nonetheless, invalid
+experiments are listed in the results tables for two reasons. First, critical process parameters
+are known then. Second, the generated chips can be still used for evaluation at these process
+conditions.
+ Test    vc        f          Fc      σF c   Ff      σF     rn     σrn    havg    σhavg   lcut   Tchip   Wear   Status
+                                                        f
+         [m/min]   [mm/rev]   [N ]    [N ]   [N ]    [N ]   [µm]   [µm]   [µm]    [µm]    [mm]   [K]
+ V0001   10.5      0.01       55.7    2.1    83.8    4.9    37.1   2.0    34.4    9.1     2024   -       L      ok
+ V0002   12.6      0.01       55.2    1.8    76.4    4.2    32.0   2.4    38.3    8.3     2024   -       L      ok
+ V0003   10.5      0.01       57.4    1.8    80.7    4.6    30.8   4.0    44.0    20.8    2024   -       L      ok
+ V0004   12.6      0.1        214.0   7.7    149.0   6.5    33.5   3.2    160.4   -       607    -       L      ok
+ V0005   10.5      0.1        209.1   7.0    130.7   5.2    27.4   5.0    158.4   -       607    -       L      ok
+ V0006   12.6      0.1        210.4   7.0    138.1   6.0    29.8   2.1    130.8   33.2    607    -       L      ok
+ V0007   10.5      0.1        0.0     0.0    0.0     0.0    33.8   2.2    175.4   -       607    -       M      error
+ V0008   12.6      0.1        0.0     0.0    0.0     0.0    30.3   1.9    358.1   19.2    607    -       L      error
+ V0009   12.6      0.1        0.0     0.0    0.0     0.0    30.3   1.9    157.7   -       607    -       L      error
+ V0010   10.5      0.2        361.3   15.3   189.1   7.1    31.4   2.4    279.4   -       607    -       L      ok
+ V0011   12.6      0.2        363.5   14.2   182.5   6.2    28.1   5.7    279.4   -       607    -       L      ok
+ V0012   10.5      0.2        366.1   14.5   199.1   7.4    31.7   2.9    341.8   -       607    -       L      ok
+ V0013   12.6      0.01       54.9    1.8    76.2    4.4    32.0   4.1    31.1    2.2     2024   -       L      ok
+ V0014   10.5      0.01       53.3    1.6    70.2    3.8    25.4   3.3    29.8    -       2024   -       L      ok
+ V0015   12.6      0.01       53.8    1.6    74.0    4.0    31.6   4.0    32.1    1.4     2024   -       L      ok
+ V0016   10.5      0.1        207.0   6.6    132.8   5.0    28.9   3.9    219.3   73.5    607    -       L      ok
+ V0017   12.6      0.1        208.0   7.2    138.3   5.6    31.3   2.1    180.0   0.5     607    -       L      ok
+ V0018   10.5      0.1        211.4   7.2    141.6   6.2    31.9   2.0    211.2   55.6    607    -       L      ok
+ V0019   12.6      0.2        362.2   13.9   181.2   6.4    26.2   3.1    288.1   -       607    -       L      ok
+ V0020   10.5      0.2        360.2   12.0   179.2   5.6    25.2   3.8    385.7   40.0    607    -       L      ok
+ V0021   12.6      0.2        358.8   12.8   186.6   6.7    30.5   2.1    296.6   42.1    607    -       L      ok
+ V0022   74.3      0.01       40.3    1.2    61.0    2.7    27.2   3.3    22.3    -       2024   -       L      ok
+ V0023   88.9      0.01       0.0     0.0    0.0     0.0    30.8   2.7    22.4    0.3     2024   -       L      error
+ V0024   74.3      0.01       42.7    1.3    73.2    3.3    34.2   2.9    24.1    2.7     2024   -       L      ok
+ V0025   88.9      0.1        194.8   5.4    133.6   3.8    31.3   2.8    126.7   0.9     607    -       L      short
+ V0026   74.3      0.1        195.9   5.3    137.5   4.6    33.6   5.3    113.6   6.9     607    -       L      short
+ V0027   88.9      0.1        196.3   4.2    139.4   3.3    30.8   2.5    139.2   18.3    607    -       L      short
+ V0028   74.3      0.2        316.1   9.1    170.5   3.8    32.0   1.9    202.5   24.2    607    -       L      short
+ V0029   88.9      0.2        308.8   4.5    147.6   2.3    27.1   4.0    202.7   6.5     607    -       L      short
+ V0030   74.3      0.2        319.2   6.7    172.1   3.3    33.3   1.8    232.9   33.3    607    -       L      short
+ V0031   190.5     0.01       35.1    0.7    53.2    1.1    23.8   1.9    18.0    2.2     2024   -       L      ok
+ V0032   159.1     0.01       37.1    1.0    64.2    1.4    29.1   2.9    25.7    -       2024   -       L      ok
+ V0033   190.5     0.01       41.3    0.7    79.2    1.3    34.2   1.7    18.4    -       2024   -       L      ok
+ V0034   159.1     0.1        179.4   4.6    126.9   2.2    33.6   2.4    113.5   -       607    -       L      short
+ V0035   190.5     0.1        175.5   1.4    119.2   0.8    32.7   1.8    148.9   25.9    607    -       L      short
+ V0037   159.1     0.2        288.5   6.2    144.5   2.8    29.7   4.0    206.8   9.4     607    -       M      short
+ V0038   190.5     0.2        289.8   4.8    158.9   2.4    32.8   2.2    198.0   -       607    -       M      short
+ V0039   159.1     0.2        289.2   3.3    145.0   2.2    29.3   3.6    198.8   -       607    -       M      short
+ V0040   190.5     0.4        491.3   7.5    225.5   9.3    28.9   4.2    337.1   -       607    -       M      short
+ V0041   159.1     0.4        471.4   16.9   203.5   19.6   33.3   2.9    365.6   -       607    -       M      short
+ V0042   190.5     0.4        490.8   8.5    238.2   8.3    35.6   2.4    368.6   -       607    -       M      short
+ V0043   212.2     0.01       36.0    1.1    67.5    1.4    30.0   4.3    19.2    -       2024   -       L      ok
+ V0044   254.1     0.01       42.3    0.8    84.2    1.5    37.5   1.7    17.6    -       4049   -       L      ok
+ V0045   212.2     0.01       38.0    0.9    66.4    1.5    30.5   2.0    24.3    -       4049   -       L      ok
+ V0046   254.1     0.01       39.5    0.8    72.5    1.2    32.1   3.6    19.6    2.8     4049   -       L      ok
+ V0047   212.2     0.1        171.0   2.3    120.9   1.0    33.8   2.8    117.3   10.7    607    -       L      short
+ V0048   254.1     0.1        168.3   2.3    119.0   1.9    32.9   2.5    87.9    3.3     607    -       L      short
+ V0049   212.2     0.1        171.8   2.8    126.7   2.0    36.8   1.9    85.0    -       607    -       L      short
+ V0050   254.1     0.2        269.5   4.1    145.0   2.9    31.4   2.1    146.2   1.8     607    -       L      short
+ V0051   212.2     0.2        288.3   6.1    165.0   4.4    37.5   2.1    201.3   6.8     607    -       L      short
+ V0052   254.1     0.2        271.2   7.1    143.7   4.7    31.3   2.8    166.6   35.4    607    -       L      short
+ V0053   212.2     0.4        481.5   13.6   214.9   5.9    31.7   2.3    298.5   12.1    607    -       M      short
+
+
+
+                                                            34
+Test    vc        f          Fc      σF c   Ff      σF      rn     σrn    havg    σhavg   lcut    Tchip   Wear   Status
+                                                       f
+        [m/min]   [mm/rev]   [N ]    [N ]   [N ]    [N ]    [µm]   [µm]   [µm]    [µm]    [mm]    [K]
+V0054   254.1     0.4        449.8   12.2   208.4   7.9     35.3   3.4    234.9   17.2    607     -       M      short
+V0055   212.2     0.4        483.4   8.0    216.1   4.1     33.4   3.7    351.4   38.0    607     -       M      short
+V0056   381.3     0.01       38.6    0.7    68.6    1.2     33.0   3.0    20.4    1.9     4049    -       L      ok
+V0057   318.5     0.01       38.0    0.8    69.0    1.2     34.2   2.2    14.0    -       4049    -       L      ok
+V0058   381.3     0.01       36.2    0.7    61.0    1.0     28.4   2.3    18.3    -       4049    -       L      ok
+V0059   318.5     0.1        162.0   3.5    112.1   2.6     32.2   2.2    223.9   101.9   1214    -       L      short
+V0060   381.3     0.1        157.5   3.3    115.5   2.8     33.0   2.4    99.7    -       1214    -       L      short
+V0061   318.5     0.1        159.1   3.8    104.9   3.0     28.7   4.6    122.3   10.1    1214    -       L      short
+V0062   381.3     0.2        262.1   5.7    162.7   11.8    34.1   2.1    145.4   6.5     1214    -       M      short
+V0063   318.5     0.2        270.3   4.9    158.3   6.0     32.5   2.1    147.7   10.1    1214    -       M      short
+V0064   381.3     0.2        260.0   4.3    165.6   9.5     35.2   2.7    153.5   -       1214    -       M      short
+V0065   318.5     0.4        455.6   10.5   272.1   32.2    36.8   2.2    232.3   20.9    1214    -       H      short
+V0066   381.3     0.4        468.5   9.4    412.3   59.6    34.8   2.1    161.5   -       1214    -       H      error
+V0067   318.5     0.4        453.9   12.1   253.6   28.6    35.8   4.2    261.3   -       1214    -       H      error
+V0068   254.1     0.2        299.5   12.7   305.9   103.5   29.8   5.0    212.3   2.5     11136   -       H      error
+V0301   10.0      0.02       79.0    2.3    85.7    5.3     36.8   3.0    -       -       3324    -       L      ok
+V0302   10.0      0.02       83.5    2.4    97.2    5.9     41.2   2.2    93.1    27.3    3324    -       L      ok
+V0303   10.0      0.02       78.5    2.2    84.9    5.3     34.1   2.8    -       -       3324    -       L      ok
+V0304   10.0      0.06       155.4   4.8    121.7   6.5     40.6   2.4    103.6   6.8     3324    -       L      ok
+V0305   10.0      0.06       154.3   4.9    118.9   6.5     39.9   2.9    -       -       3324    -       L      ok
+V0306   10.0      0.06       156.4   5.0    125.0   6.9     41.3   2.5    -       -       3324    -       L      ok
+V0307   10.0      0.1        -0.2    2.3    -0.1    1.4     34.4   4.3    -       -       3324    -       L      error
+V0308   10.0      0.1        223.0   7.2    152.4   7.7     42.2   4.4    -       -       3324    -       L      ok
+V0309   10.0      0.1        223.5   7.8    154.6   8.4     42.4   3.6    164.2   4.2     3324    -       L      ok
+V0310   50.1      0.02       61.7    1.7    71.4    3.3     32.4   4.0    -       -       3324    -       L      ok
+V0311   50.1      0.02       68.2    1.9    95.1    4.7     42.5   1.9    49.3    7.9     3324    -       L      ok
+V0312   50.1      0.02       67.1    1.8    89.8    4.4     40.7   2.4    -       -       3324    -       L      ok
+V0313   50.1      0.06       139.8   4.2    121.3   4.5     38.4   2.9    -       -       3324    -       L      ok
+V0314   50.1      0.06       141.5   4.4    126.7   4.7     40.2   3.6    -       -       3324    -       L      ok
+V0315   50.1      0.06       138.4   4.2    117.8   4.4     38.3   2.7    75.7    3.6     3324    -       L      ok
+V0316   50.1      0.1        211.4   6.2    143.2   3.7     38.7   2.5    -       -       3324    -       L      ok
+V0317   50.1      0.1        210.8   6.2    141.6   3.8     36.7   2.2    -       -       3324    -       L      ok
+V0318   50.1      0.1        210.9   5.9    140.6   3.4     36.3   2.2    152.1   -       3324    -       L      ok
+V0319   10.0      0.1        221.9   7.1    145.8   7.1     37.7   2.4    -       -       3324    -       L      ok
+V0320   19.9      0.01       55.9    3.1    84.5    5.2     40.5   2.8    22.8    -       3324    -       L      ok
+V0321   19.9      0.01       57.2    1.8    85.8    5.1     39.2   2.3    -       -       3324    -       L      ok
+V0322   19.9      0.01       56.2    2.2    84.3    5.0     39.5   2.2    -       -       3324    -       L      ok
+V0323   19.9      0.04       111.7   4.2    108.5   5.9     38.1   3.1    -       -       3324    -       L      ok
+V0324   19.9      0.04       104.3   3.1    87.8    4.4     31.2   3.6    -       -       3324    -       L      ok
+V0325   19.9      0.04       110.5   3.5    104.9   5.6     37.5   2.6    74.5    10.7    3324    -       L      ok
+V0326   19.9      0.1        211.1   6.5    146.8   6.4     37.3   2.0    -       -       3324    -       M      ok
+V0327   19.9      0.1        213.5   6.8    158.1   7.1     42.9   2.2    -       -       3324    -       M      ok
+V0328   19.9      0.1        205.8   6.4    133.0   5.5     33.5   3.5    146.7   -       3324    -       M      ok
+V0329   100.0     0.01       44.1    1.0    81.4    3.3     40.6   2.1    -       -       3324    -       L      ok
+V0330   100.0     0.01       43.5    1.1    77.7    3.1     40.0   2.7    -       -       3324    -       L      ok
+V0331   100.0     0.01       43.6    1.0    78.7    3.1     38.8   2.7    22.8    1.1     3324    -       L      ok
+V0332   100.0     0.04       99.0    2.1    96.0    2.4     33.8   3.3    -       -       3324    -       L      ok
+V0333   100.0     0.04       98.4    2.0    93.9    2.1     34.5   3.2    73.4    13.7    3324    -       L      ok
+V0334   100.0     0.04       102.8   2.4    111.5   3.0     41.0   2.7    -       -       3324    -       L      ok
+V0335   100.0     0.1        203.3   2.9    140.0   2.3     37.9   4.7    -       -       3324    -       M      ok
+V0336   100.0     0.1        200.0   2.3    122.0   1.5     32.5   3.6    180.3   -       3324    -       M      ok
+V0337   100.0     0.1        199.2   2.5    123.6   2.0     32.8   3.2    -       -       3324    -       M      ok
+V0338   39.9      0.01       48.5    1.3    77.5    3.9     42.4   2.2    -       -       3324    -       L      ok
+V0339   39.9      0.01       47.1    1.2    72.6    3.8     39.1   4.8    -       -       3324    -       L      ok
+V0340   39.9      0.01       45.9    1.2    68.2    3.6     35.2   2.4    24.7    2.7     3324    -       L      ok
+V0341   39.9      0.04       102.3   3.0    100.2   4.6     36.7   2.4    -       -       3324    -       L      ok
+V0342   39.9      0.04       103.1   3.0    103.7   4.9     38.0   2.4    -       -       3324    -       L      ok
+V0343   39.9      0.04       100.3   2.9    97.7    4.4     36.0   4.4    87.3    33.7    3324    -       L      ok
+V0344   39.9      0.1        211.9   6.8    152.2   5.1     40.1   3.2    -       -       3324    -       L      ok
+V0345   39.9      0.1        209.0   6.6    143.5   4.4     37.4   2.3    -       -       3324    -       L      ok
+V0346   39.9      0.1        209.3   6.8    143.8   4.9     36.7   2.1    133.4   -       3324    -       L      ok
+V0347   125.0     0.01       35.0    0.7    49.1    1.5     28.6   4.1    -       -       3324    -       L      ok
+V0348   125.0     0.01       42.7    0.9    77.5    2.6     38.3   2.4    19.4    -       3324    -       L      ok
+V0349   125.0     0.01       43.1    0.9    78.8    2.6     38.9   2.3    -       -       3324    -       L      ok
+V0350   125.0     0.04       102.3   2.3    110.9   3.2     37.9   2.4    62.4    -       3324    -       L      ok
+V0351   125.0     0.04       97.7    2.2    93.0    2.5     32.9   2.6    -       -       3324    -       L      ok
+V0352   125.0     0.04       101.5   2.3    107.1   3.0     39.5   4.2    -       -       3324    -       L      ok
+V0353   125.0     0.1        197.3   2.1    141.2   1.7     40.5   3.0    192.0   47.7    3324    -       M      ok
+V0354   125.0     0.1        197.7   2.0    141.2   1.8     40.1   3.1    -       -       3324    -       M      ok
+V0355   125.0     0.1        195.9   2.0    138.9   1.7     39.8   2.4    -       -       3324    -       M      ok
+V0356   19.9      0.02       69.9    1.9    77.8    4.2     36.1   2.8    -       -       3324    -       L      ok
+V0357   19.9      0.02       75.1    2.0    91.4    5.1     40.9   2.1    -       -       3324    -       L      ok
+V0358   19.9      0.02       71.8    1.9    82.0    4.5     35.4   2.0    45.6    13.3    3324    -       L      ok
+V0359   19.9      0.08       170.1   5.1    112.5   4.4     30.7   3.3    -       -       3324    -       L      ok
+V0360   19.9      0.08       174.4   5.4    127.9   6.0     38.8   2.8    124.7   -       3324    -       L      ok
+V0361   19.9      0.08       177.0   5.6    138.3   6.6     42.5   2.4    -       -       3324    -       L      ok
+V0362   19.9      0.15       291.4   9.5    171.8   5.9     38.5   2.7    -       -       3324    -       L      ok
+V0363   19.9      0.15       292.8   9.7    176.4   6.1     39.2   2.3    211.6   -       3324    -       L      ok
+V0364   19.9      0.15       293.2   9.4    172.8   5.5     38.4   3.2    -       -       3324    -       L      ok
+V0365   100.0     0.02       61.0    1.4    80.6    3.0     37.2   2.8    39.4    14.1    3324    -       L      ok
+V0366   100.0     0.02       62.9    1.5    89.9    3.2     37.5   3.0    -       -       3324    -       L      ok
+V0367   100.0     0.02       60.9    1.3    82.5    3.0     35.0   3.1    -       -       3324    -       L      ok
+V0368   100.0     0.08       173.8   3.3    129.3   2.8     39.2   3.4    111.2   5.1     3324    -       M      ok
+V0369   100.0     0.08       175.4   3.1    137.6   2.6     42.5   3.5    -       -       3324    -       M      ok
+V0370   100.0     0.08       174.7   3.2    135.9   2.7     44.6   7.2    -       -       3324    -       M      ok
+V0371   100.0     0.15       265.0   3.0    161.1   2.1     43.3   4.0    -       -       3324    -       M      ok
+V0372   100.0     0.15       265.7   3.0    161.8   2.2     42.6   3.2    -       -       3324    -       M      ok
+V0373   100.0     0.15       264.8   3.0    159.1   2.0     41.1   3.0    315.8   86.7    3324    -       M      ok
+V0374   19.9      0.06       148.2   4.4    122.5   5.6     34.5   2.6    121.5   28.7    3282    -       L      ok
+V0375   19.9      0.06       150.9   4.5    134.9   6.7     40.7   2.1    -       -       3282    -       L      ok
+V0376   19.9      0.06       143.6   4.3    115.4   5.1     32.4   3.1    -       -       3282    -       L      ok
+V0377   19.9      0.12       248.4   7.8    172.7   6.2     40.4   2.2    164.5   10.0    3282    -       M      ok
+V0378   19.9      0.12       240.7   7.3    149.2   4.5     33.0   4.2    -       -       3282    -       M      ok
+V0379   19.9      0.12       245.1   7.8    169.6   6.3     40.7   2.7    -       -       3282    -       M      ok
+V0380   19.9      0.2        366.6   14.0   198.7   9.1     40.9   2.8    237.1   20.2    3282    -       M      ok
+V0381   19.9      0.2        366.3   13.4   198.0   9.8     37.8   2.1    -       -       3282    -       M      ok
+V0382   19.9      0.2        367.6   13.6   190.7   9.5     36.5   3.0    287.4   76.1    3282    -       M      ok
+V0383   70.0      0.06       140.0   3.7    127.8   3.3     41.6   2.2    99.9    17.0    3282    -       L      ok
+V0384   70.0      0.06       -7.8    29.5   -11.7   27.6    44.5   2.3    -       -       3282    -       L      error
+
+
+
+
+                                                            35
+Test    vc        f          Fc      σF c   Ff      σF     rn     σrn    havg    σhavg   lcut   Tchip   Wear   Status
+                                                       f
+        [m/min]   [mm/rev]   [N ]    [N ]   [N ]    [N ]   [µm]   [µm]   [µm]    [µm]    [mm]   [K]
+V0385   70.0      0.06       139.1   3.2    122.6   2.9    39.4   3.3    -       -       3282   -       L      ok
+V0386   70.0      0.12       237.6   4.0    151.1   4.0    39.4   2.4    330.1   19.4    3282   -       M      ok
+V0387   70.0      0.12       236.2   4.3    149.3   4.4    38.2   2.8    -       -       3282   -       M      ok
+V0388   70.0      0.12       240.0   4.0    162.5   3.9    43.9   2.6    -       -       3282   -       M      ok
+V0389   70.0      0.2        330.7   4.2    167.6   3.3    37.9   3.4    -       -       3282   -       M      ok
+V0390   70.0      0.2        334.4   4.8    181.7   5.8    40.5   2.4    230.3   18.6    3282   -       M      ok
+V0391   70.0      0.2        335.3   4.1    188.1   3.7    41.9   2.0    -       -       3282   -       M      ok
+V0392   19.9      0.06       137.7   3.1    122.0   3.0    39.3   2.4    -       -       3282   -       L      ok
+V0393   50.1      0.04       99.0    2.4    95.8    3.5    34.6   3.5    -       -       3282   -       L      ok
+V0394   50.1      0.04       99.3    2.4    98.8    3.6    36.0   2.8    67.9    -       3282   -       L      ok
+V0395   50.1      0.04       101.3   2.4    107.4   4.0    40.8   3.2    -       -       3282   -       L      ok
+V0396   50.1      0.08       172.2   4.6    129.9   3.5    38.4   3.8    -       -       3282   -       L      ok
+V0397   50.1      0.08       174.5   4.5    141.3   3.8    42.2   2.5    108.7   -       3282   -       L      ok
+V0398   50.1      0.08       166.4   4.6    110.6   3.1    32.4   3.4    -       -       3282   -       L      ok
+V0399   50.1      0.15       281.3   2.7    166.9   2.7    41.7   2.3    -       -       3282   -       M      ok
+V0400   50.1      0.15       279.3   2.9    162.5   3.3    40.8   2.6    177.6   -       3282   -       M      ok
+V0401   50.1      0.15       274.1   2.9    144.9   2.9    34.9   3.3    -       -       3282   -       M      ok
+V0402   70.0      0.04       100.6   2.5    108.0   3.6    40.5   2.5    64.2    2.5     3282   -       L      ok
+V0403   70.0      0.04       99.6    2.4    104.4   3.4    37.7   2.4    -       -       3282   -       L      ok
+V0404   70.0      0.04       98.4    2.2    99.3    3.0    36.2   2.8    -       -       3282   -       L      ok
+V0405   70.0      0.08       168.2   3.5    121.4   2.3    36.6   2.7    110.5   10.9    3282   -       M      ok
+V0406   70.0      0.08       165.7   3.3    113.2   1.8    33.9   3.0    -       -       3282   -       M      ok
+V0407   70.0      0.08       165.7   3.5    115.7   2.2    35.9   2.9    -       -       3282   -       M      ok
+V0408   70.0      0.15       271.8   2.9    149.0   2.2    33.7   4.3    -       -       3282   -       M      ok
+V0409   70.0      0.15       272.6   3.5    158.4   2.8    37.3   2.5    -       -       3282   -       M      ok
+V0410   70.0      0.15       274.1   3.3    160.4   2.6    37.6   2.4    225.8   19.1    3282   -       M      ok
+V0411   70.0      0.1        202.7   4.2    133.0   3.4    36.8   3.0    -       -       3282   -       M      ok
+V0412   70.0      0.1        202.7   4.3    133.7   3.4    38.1   3.1    129.0   4.2     3282   -       M      ok
+V0413   70.0      0.1        203.0   4.3    138.5   3.7    38.6   2.3    -       -       3282   -       M      ok
+V0414   50.1      0.2        337.4   5.8    174.0   6.1    38.5   2.8    445.6   162.9   3282   -       M      ok
+V0415   50.1      0.2        328.4   5.5    143.0   4.3    29.1   4.1    -       -       3282   -       M      ok
+V0416   50.1      0.2        336.8   6.3    174.0   5.5    37.6   2.5    -       -       3282   -       M      ok
+V0417   52.0      0.02       67.8    1.5    89.3    3.7    37.3   2.5    -       -       3435   -       L      ok
+V0418   52.0      0.02       64.6    1.5    79.1    3.2    36.1   2.9    -       -       3435   -       L      ok
+V0419   52.0      0.02       67.3    1.5    89.0    3.6    39.1   2.4    41.0    1.5     3435   -       L      ok
+V0420   52.0      0.08       183.0   4.5    143.0   3.7    39.5   2.3    121.1   32.4    3435   -       L      ok
+V0421   52.0      0.08       180.6   4.5    138.5   3.5    38.1   2.2    -       -       3435   -       L      ok
+V0422   52.0      0.08       180.7   4.3    138.1   3.4    37.8   1.9    -       -       3435   -       L      ok
+V0423   52.0      0.12       247.7   4.7    153.7   2.8    38.9   2.8    184.6   37.6    3435   -       L      ok
+V0424   52.0      0.12       247.9   4.6    152.1   2.7    38.8   4.0    -       -       3435   -       L      ok
+V0425   52.0      0.12       248.4   4.7    162.1   3.2    41.1   2.6    -       -       3435   -       L      ok
+V0426   162.4     0.02       65.9    0.9    98.2    1.7    41.9   2.2    -       -       3435   -       L      ok
+V0427   162.4     0.02       63.1    0.9    86.9    1.5    37.8   3.2    35.2    2.2     3435   -       L      ok
+V0428   162.4     0.02       58.1    0.7    68.4    1.1    30.5   4.3    -       -       3435   -       L      ok
+V0429   162.4     0.08       171.5   1.6    137.6   2.2    39.6   2.4    119.0   15.0    3435   -       M      ok
+V0430   162.4     0.08       169.4   1.3    128.1   1.5    37.7   3.0    -       -       3435   -       M      ok
+V0431   162.4     0.08       171.5   1.6    138.5   2.3    41.0   1.9    -       -       3435   -       M      ok
+V0432   162.4     0.12       222.3   1.9    146.5   2.3    38.1   2.8    -       -       3435   -       M      ok
+V0433   162.4     0.12       222.6   2.4    150.6   3.0    39.4   2.3    151.1   4.7     3435   -       M      ok
+V0434   162.4     0.12       221.7   2.0    150.3   2.6    42.0   2.2    -       -       3435   -       M      ok
+V0435   60.0      0.02       65.4    1.4    86.1    3.4    36.6   2.4    -       -       3435   -       L      ok
+V0436   60.0      0.02       63.8    1.3    81.7    3.1    36.6   3.1    -       -       3435   -       L      ok
+V0437   60.0      0.02       66.3    1.4    88.9    3.5    39.0   2.6    39.5    -       3435   -       L      ok
+V0438   60.0      0.1        211.8   3.6    136.2   2.3    37.3   3.1    -       -       3435   -       M      ok
+V0439   60.0      0.1        212.3   3.7    140.0   2.3    37.2   2.1    -       -       3435   -       M      ok
+V0440   60.0      0.1        214.3   3.7    145.3   2.7    39.8   2.9    117.3   -       3435   -       M      ok
+V0441   60.0      0.2        353.5   5.6    191.6   5.3    40.4   3.2    -       -       3435   -       M      ok
+V0442   60.0      0.2        354.2   5.6    192.5   3.9    39.9   3.0    285.5   71.6    3435   -       M      ok
+V0443   60.0      0.2        353.4   5.5    193.8   3.1    39.4   2.7    -       -       3435   -       M      ok
+V0444   60.0      0.02       65.0    1.3    86.3    3.4    39.9   6.3    -       -       3435   -       L      ok
+V0445   60.0      0.02       67.8    1.4    96.3    3.9    41.3   2.0    37.6    3.8     3435   -       L      ok
+V0446   79.9      0.02       66.5    1.4    95.8    3.5    41.2   2.4    -       -       3435   -       L      ok
+V0447   79.9      0.1        205.6   3.6    126.9   3.7    32.8   3.9    -       -       3435   -       M      ok
+V0448   79.9      0.1        213.0   3.4    148.4   3.6    39.5   3.0    181.6   49.5    3435   -       M      ok
+V0449   79.9      0.1        212.0   3.4    149.3   3.7    41.1   3.7    -       -       3435   -       M      ok
+V0450   79.9      0.2        337.1   4.0    171.6   2.1    37.7   3.4    -       -       3435   -       M      ok
+V0451   79.9      0.2        340.5   4.6    186.4   2.9    41.8   2.8    -       -       3435   -       M      ok
+V0452   79.9      0.2        339.0   4.0    179.4   2.4    38.9   2.1    222.4   9.3     3435   -       M      ok
+V0453   79.9      0.02       64.0    1.4    88.2    3.2    36.6   2.8    -       -       3435   -       L      ok
+V0454   79.9      0.02       66.4    1.4    96.5    3.5    40.8   2.6    39.5    8.6     3435   -       L      ok
+V0455   150.0     0.1        196.3   1.4    137.2   1.3    38.5   2.9    141.2   15.0    3435   -       M      ok
+V0456   150.0     0.1        195.9   1.8    134.3   1.5    36.4   2.3    -       -       3435   -       M      ok
+V0457   150.0     0.1        200.1   1.6    152.6   1.7    42.9   2.9    -       -       3435   -       M      ok
+V0458   199.9     0.1        192.7   1.6    137.2   2.8    38.2   2.8    -       -       3435   -       M      short
+V0459   199.9     0.1        190.5   1.1    142.5   1.8    40.6   2.7    145.4   19.7    3435   -       M      short
+V0460   199.9     0.1        188.3   1.5    121.4   2.2    32.7   3.7    -       -       3435   -       M      short
+V0461   400.1     0.01       41.2    0.2    74.3    0.4    35.5   4.5    18.5    1.2     3435   -       L      ok
+V0462   400.1     0.01       37.8    0.2    61.4    0.3    31.7   2.9    -       -       3435   -       L      ok
+V0463   400.1     0.01       40.6    0.2    72.6    0.5    35.9   4.4    -       -       3435   -       L      ok
+V0464   400.1     0.02       61.1    0.4    84.0    0.7    36.7   3.1    -       -       3435   -       L      ok
+V0465   400.1     0.02       63.8    0.4    94.0    0.8    40.9   2.4    -       -       3435   -       L      ok
+V0466   400.1     0.02       62.7    0.5    90.3    0.6    38.2   2.6    30.6    3.2     3435   -       L      ok
+V0467   400.1     0.03       80.5    0.8    96.6    0.8    37.0   2.7    -       -       3435   -       L      ok
+V0468   400.1     0.03       81.2    0.7    98.4    0.8    38.7   3.2    42.7    0.3     3435   -       L      ok
+V0469   400.1     0.03       82.9    0.6    108.1   0.7    42.5   2.4    -       -       3435   -       L      ok
+V0470   400.1     0.04       98.6    1.0    109.0   1.3    38.2   3.2    -       -       3435   -       M      short
+V0471   400.1     0.04       99.8    0.6    116.0   0.9    41.9   2.9    52.8    1.0     3435   -       M      ok
+V0472   400.1     0.04       97.2    1.0    101.6   1.7    38.4   3.4    -       -       3435   -       M      short
+V0473   500.0     0.01       42.2    0.6    76.6    0.6    37.7   3.2    -       -       3435   -       L      ok
+V0474   500.0     0.01       44.3    0.7    83.6    0.7    39.1   3.6    19.2    5.2     3435   -       L      ok
+V0475   500.0     0.01       43.2    0.6    81.2    0.7    37.6   2.4    -       -       3435   -       L      ok
+V0476   500.0     0.02       64.0    0.9    91.6    0.9    38.4   2.6    -       -       3435   -       L      ok
+V0477   500.0     0.02       66.0    0.6    101.1   0.8    42.3   2.5    -       -       3435   -       L      ok
+V0478   500.0     0.02       65.6    0.6    98.7    1.0    39.9   2.3    54.9    31.8    3435   -       L      ok
+V0479   500.0     0.1        234.1   14.0   603.5   23.7   39.9   2.3    86.4    50.6    3435   -       H      error
+V0480   40.0      0.06       139.5   3.6    115.9   4.1    34.7   2.8    -       -       3348   -       L      ok
+V0481   40.0      0.06       142.7   3.8    127.8   4.8    39.7   2.4    109.5   15.4    3348   -       L      ok
+V0482   40.0      0.06       140.4   3.7    121.2   4.4    36.9   2.5    -       -       3348   -       L      ok
+V0483   40.0      0.15       290.2   7.9    174.8   8.7    42.1   3.1    -       -       3348   -       M      ok
+
+
+
+
+                                                           36
+Test    vc        f          Fc      σF c   Ff       σF     rn     σrn    havg    σhavg   lcut    Tchip   Wear   Status
+                                                        f
+        [m/min]   [mm/rev]   [N ]    [N ]   [N ]     [N ]   [µm]   [µm]   [µm]    [µm]    [mm]    [K]
+V0484   40.0      0.15       286.8   7.5    173.3    10.3   40.0   3.4    177.7   -       3348    -       M      ok
+V0485   40.0      0.15       285.3   7.4    162.7    9.8    38.0   2.4    -       -       3348    -       M      ok
+V0486   40.0      0.2        349.7   6.5    178.7    9.7    33.2   4.4    -       -       3348    -       M      ok
+V0487   40.0      0.2        352.3   5.2    169.1    6.0    33.4   3.1    -       -       3348    -       M      ok
+V0488   40.0      0.2        353.1   6.2    180.6    8.8    37.2   3.3    233.7   -       3348    -       M      ok
+V0489   125.0     0.06       141.9   2.2    123.3    2.0    37.7   3.2    -       -       3348    -       M      ok
+V0490   125.0     0.06       141.7   2.3    122.8    2.3    37.9   3.3    88.5    8.6     3348    -       M      ok
+V0491   125.0     0.06       141.9   2.2    125.2    2.1    39.0   3.2    98.9    16.1    3348    -       M      ok
+V0492   125.0     0.15       258.3   2.6    150.5    1.8    37.1   4.0    -       -       3348    -       M      ok
+V0493   125.0     0.15       256.5   2.6    137.3    1.7    34.6   3.2    -       -       3348    -       M      ok
+V0494   125.0     0.15       259.2   2.6    154.2    1.9    39.3   2.7    171.6   2.7     3348    -       M      ok
+V0495   125.0     0.2        322.3   4.9    166.6    5.0    35.4   2.4    -       -       3348    -       M      short
+V0496   125.0     0.2        324.0   5.3    176.1    5.0    38.6   3.3    296.9   135.6   3348    -       M      short
+V0497   125.0     0.2        321.7   4.1    173.4    3.6    42.9   4.6    -       -       3348    -       M      ok
+V0498   100.0     0.06       143.9   3.1    136.8    3.7    46.8   2.8    -       -       3348    -       M      ok
+V0499   100.0     0.06       142.5   3.4    132.2    4.0    40.5   3.2    147.5   51.8    3348    -       M      ok
+V0500   100.0     0.06       140.9   3.1    128.7    3.6    39.3   3.0    -       -       3348    -       M      ok
+V0501   100.0     0.12       229.3   2.0    147.5    1.4    39.1   3.0    156.1   4.4     3348    -       M      ok
+V0502   100.0     0.12       227.1   1.9    142.5    1.6    37.7   2.9    -       -       3348    -       M      ok
+V0503   100.0     0.12       229.4   1.9    149.9    1.6    38.1   2.9    -       -       3348    -       M      ok
+V0504   100.0     0.2        325.2   4.1    172.5    2.3    39.4   4.0    -       -       3348    -       M      ok
+V0505   100.0     0.2        329.4   4.1    177.2    2.7    41.0   2.2    241.5   2.0     3348    -       M      ok
+V0506   100.0     0.2        323.9   3.8    164.0    2.4    35.9   2.7    -       -       3348    -       M      ok
+V0507   150.0     0.06       138.2   1.4    118.3    1.1    36.5   3.0    -       -       3348    -       M      ok
+V0508   150.0     0.06       139.8   1.4    130.6    1.5    41.0   2.8    109.3   21.5    3348    -       M      ok
+V0509   150.0     0.06       137.4   1.3    117.1    1.2    37.3   3.0    -       -       3348    -       M      ok
+V0510   150.0     0.12       218.6   1.7    144.3    1.7    39.0   2.4    149.9   13.8    3348    -       M      ok
+V0511   150.0     0.12       219.6   1.8    149.3    1.9    41.2   2.3    -       -       3348    -       M      ok
+V0512   150.0     0.12       216.9   1.7    137.5    1.5    35.4   2.2    -       -       3348    -       M      ok
+V0513   150.0     0.2        324.2   4.7    176.0    7.3    36.0   2.9    -       -       3348    -       M      short
+V0514   150.0     0.2        325.1   5.8    185.3    7.9    37.8   2.8    276.6   51.4    3348    -       M      short
+V0515   150.0     0.2        326.2   5.2    184.0    7.3    37.3   2.1    -       -       3348    -       M      short
+V0516   150.0     0.02       63.6    1.0    91.0     1.9    38.3   2.5    38.5    11.3    3348    -       L      ok
+V0517   150.0     0.02       61.6    0.8    83.2     1.5    34.8   3.6    -       -       3348    -       L      ok
+V0518   150.0     0.02       63.4    0.8    89.0     1.6    36.2   3.9    -       -       3348    -       L      ok
+V0519   150.0     0.03       85.4    1.2    105.7    1.8    40.0   2.8    38.8    0.5     3348    -       L      ok
+V0520   150.0     0.03       87.1    1.2    108.3    1.9    38.1   4.1    -       -       3348    -       L      ok
+
+                        Table B.14: Experimental results Ti6Al4V orthogonal cutting tests
+
+
+Test    vc        f          Fc      σF c   Ff       σF     rn     σrn    havg    σhavg   lcut    Tchip   Wear   Status
+                                                        f
+        [m/min]   [mm/rev]   [N ]    [N ]   [N ]     [N ]   [µm]   [µm]   [µm]    [µm]    [mm]    [K]
+V0069   10.1      0.01       52.1    11.0   31.6     6.7    33.9   1.6    -       -       6587    -       L      short
+V0070   10.1      0.01       47.0    7.1    28.4     4.2    35.5   2.3    71.1    -       6587    360     L      ok
+V0071   10.1      0.01       47.7    9.5    28.4     5.7    39.5   4.9    -       -       6587    -       L      ok
+V0072   10.1      0.1        325.1   26.7   185.5    19.3   42.3   2.4    228.6   -       1317    360     L      ok
+V0073   10.1      0.1        312.1   38.8   175.8    20.0   39.2   3.0    190.2   -       1317    360     L      ok
+V0074   10.1      0.1        310.3   25.2   173.0    15.9   39.0   3.8    231.3   -       1317    360     L      ok
+V0075   10.1      0.2        509.0   9.2    303.2    27.0   42.4   2.0    439.0   -       1317    360     L      saturation
+V0076   10.1      0.2        543.9   39.7   306.9    30.7   39.2   4.0    367.9   -       1317    360     M      ok
+V0077   10.1      0.2        543.7   39.9   298.6    32.0   42.4   2.3    516.4   -       1317    360     M      ok
+V0078   10.1      0.2        542.9   32.6   297.3    28.2   33.2   4.7    444.3   -       1317    360     L      ok
+V0079   70.1      0.01       38.5    9.5    24.3     6.4    41.2   2.5    69.0    -       4391    360     L      instable
+V0080   70.1      0.01       38.0    9.0    23.7     5.6    36.3   4.6    -       -       6587    360     L      instable
+V0081   70.1      0.01       37.0    9.8    23.3     6.2    42.4   2.5    90.4    -       21959   360     L      ok
+V0082   70.1      0.1        283.7   14.6   233.6    25.6   40.6   2.6    -       -       1317    250     L      instable
+V0083   70.1      0.1        329.6   8.9    319.8    11.2   39.5   3.6    -       -       1976    250     M      instable
+V0084   70.1      0.1        379.7   4.0    401.0    5.7    38.2   4.1    395.5   -       4391    300     M      ok
+V0085   70.1      0.1        387.3   2.9    412.2    2.9    43.8   2.3    414.8   4.3     4391    290     M      ok
+V0086   70.1      0.2        612.8   9.9    511.3    2.7    38.1   3.5    -       -       2195    290     M      saturation
+V0087   70.1      0.2        617.0   8.1    511.5    0.7    41.4   2.5    679.2   -       2195    290     M      saturation
+V0088   70.1      0.2        614.7   8.5    511.5    0.7    41.4   2.5    606.5   -       2195    290     M      saturation
+V0089   70.1      0.2        614.3   8.3    544.9    14.6   36.0   2.6    -       -       2195    290     M      instable
+V0090   150.0     0.01       34.4    5.3    -169.7   4.0    39.8   2.5    57.7    14.2    21959   360     L      error
+V0091   150.0     0.01       36.5    5.9    25.0     4.3    41.7   2.1    44.0    -       21959   360     L      ok
+V0092   150.0     0.01       36.3    6.4    24.9     4.6    39.5   2.5    37.9    2.2     21959   360     L      ok
+V0093   150.0     0.1        344.4   1.2    334.9    1.6    41.5   3.5    318.0   -       4391    290     M      ok
+V0094   150.0     0.1        346.8   2.3    340.2    3.8    43.4   2.0    346.2   -       4391    290     M      ok
+V0095   150.0     0.1        342.9   2.3    332.4    3.6    36.1   3.0    353.2   -       4391    290     M      ok
+V0096   150.0     0.2        549.0   3.0    410.3    4.1    40.6   2.5    512.8   -       2195    290     M      ok
+V0097   150.0     0.2        544.6   5.0    401.9    9.7    44.7   2.1    529.6   -       2195    360     M      ok
+V0098   150.0     0.2        544.8   3.7    402.0    6.1    41.3   2.2    409.5   36.7    2195    340     M      ok
+V0099   150.0     0.4        876.9   20.6   470.4    39.7   42.9   2.5    724.3   -       1097    320     M      instable
+V0100   150.0     0.4        920.4   5.9    515.7    4.5    40.0   2.5    801.9   96.8    2195    340     M      ok
+V0101   150.0     0.4        899.5   15.1   498.8    23.7   42.0   2.9    638.6   -       4940    340     M      ok
+V0102   30.0      0.02       72.6    27.8   45.2     16.3   40.5   2.9    -       -       3440    360     L      ok
+V0103   30.0      0.02       71.6    24.5   43.9     14.2   39.2   2.9    -       -       3440    360     L      ok
+V0104   30.0      0.02       70.2    24.1   43.2     14.3   40.2   2.7    244.0   -       3440    360     L      ok
+V0105   30.0      0.06       188.3   20.8   108.6    14.2   42.4   2.4    -       -       3440    360     L      questionable
+V0106   30.0      0.06       170.6   29.0   96.9     16.4   36.0   3.9    108.3   -       3440    360     L      questionable
+V0107   30.0      0.06       166.2   32.6   95.5     18.1   42.3   2.1    -       -       3440    360     L      questionable
+V0108   30.0      0.15       377.0   29.3   216.1    19.9   38.3   2.9    242.4   -       3440    360     L      ok
+V0109   30.0      0.15       370.1   27.3   209.4    20.3   42.9   2.3    257.9   -       3440    360     L      ok
+V0110   30.0      0.15       377.1   26.8   218.9    18.8   39.9   2.7    221.5   22.9    3440    360     M      ok
+V0111   100.0     0.02       64.0    18.6   41.2     12.1   40.5   2.4    -       -       3440    360     L      questionable
+V0112   100.0     0.02       64.1    19.9   41.9     12.9   38.2   4.9    104.6   -       3440    360     L      questionable
+V0113   100.0     0.02       63.2    12.6   41.2     8.3    42.4   3.0    48.4    -       3440    360     L      ok
+V0114   100.0     0.06       198.4   2.9    177.9    4.6    41.6   2.3    -       -       3440    320     M      ok
+V0115   100.0     0.06       196.9   2.3    175.5    3.9    38.1   4.5    -       -       3440    290     M      ok
+V0116   100.0     0.06       195.8   2.7    172.6    4.8    37.3   3.7    161.5   -       3440    320     M      ok
+V0117   100.0     0.15       455.2   6.2    405.4    12.7   38.4   3.5    506.9   21.2    3440    300     M      initially stable
+V0118   100.0     0.15       461.8   6.5    420.1    11.5   37.2   4.0    -       -       3440    360     M      short
+V0119   100.0     0.15       476.3   8.1    443.7    14.2   39.5   3.0    -       -       3440    360     M      initially stable
+V0120   30.0      0.04       126.3   25.2   72.6     15.5   38.2   2.6    -       -       3440    360     L      questionable
+V0121   30.0      0.04       127.7   23.3   75.3     13.3   40.5   3.1    117.7   14.8    3440    360     L      ok
+V0122   30.0      0.04       121.7   35.2   71.5     20.1   35.2   4.5    -       -       3440    360     L      questionable
+
+
+
+
+                                                            37
+Test    vc        f          Fc       σF c   Ff       σF      rn     σrn    havg    σhavg   lcut     Tchip   Wear   Status
+                                                         f
+        [m/min]   [mm/rev]   [N ]     [N ]   [N ]     [N ]    [µm]   [µm]   [µm]    [µm]    [mm]     [K]
+V0123   30.0      0.1        262.5    23.4   152.9    15.5    43.1   2.1    -       -       3440     360     L      ok
+V0124   30.0      0.1        253.2    26.7   144.5    16.8    39.0   2.9    -       -       3440     360     L      ok
+V0125   30.0      0.1        258.1    25.7   147.2    15.7    38.4   2.5    147.3   -       3440     360     L      ok
+V0126   30.0      0.2        488.6    26.6   289.1    23.2    39.6   3.2    -       -       3440     240     M      ok
+V0127   30.0      0.2        501.3    28.5   307.1    30.0    44.0   2.1    448.1   78.9    3440     240     M      ok
+V0128   30.0      0.2        493.3    25.7   296.3    25.5    40.6   3.5    -       -       3440     240     M      ok
+V0129   100.0     0.04       122.9    8.3    91.6     9.0     43.4   2.1    109.1   15.7    3440     250     L      ok
+V0130   100.0     0.04       120.1    10.7   85.4     8.7     31.6   3.3    -       -       3440     360     L      ok
+V0131   100.0     0.04       113.6    12.7   79.9     11.4    36.5   4.7    -       -       3440     240     L      ok
+V0132   100.0     0.1        350.9    3.1    360.2    5.4     39.2   3.5    -       -       3440     320     M      short
+V0133   100.0     0.1        350.0    2.4    355.7    5.5     37.6   2.3    379.1   -       3440     320     M      short
+V0134   100.0     0.1        353.6    1.8    364.8    2.8     38.3   2.7    -       -       3440     320     M      short
+V0135   100.0     0.2        565.3    10.5   459.0    19.1    38.5   6.2    -       -       3440     340     M      initially stable
+V0136   100.0     0.2        552.9    12.3   444.3    24.6    44.3   5.2    -       -       3440     320     M      initially stable
+V0137   100.0     0.2        565.9    9.2    461.8    16.3    40.4   3.2    572.9   -       3440     340     M      initially stable
+V0138   30.0      1.0        1590.6   61.8   1417.5   170.1   0.0    0.0    -       -       3440     -       H      saturation
+V0139   50.1      0.02       67.9     25.9   41.2     15.0    38.9   3.7    145.6   -       3308     360     L      questionable
+V0140   50.1      0.02       73.1     22.6   45.3     13.3    39.9   3.3    59.4    -       3308     360     L      questionable
+V0141   50.1      0.02       68.0     28.1   42.1     17.0    40.4   2.6    -       -       3308     360     L      questionable
+V0142   50.1      0.06       164.3    40.3   99.1     23.0    38.4   3.3    -       -       3308     360     L      ok
+V0143   50.1      0.06       167.2    29.7   100.9    16.6    35.2   5.2    191.2   -       3308     360     L      ok
+V0144   50.1      0.06       158.0    40.8   94.6     23.1    36.6   2.6    -       -       3308     360     L      ok
+V0145   50.1      0.15       506.7    10.7   487.4    16.5    42.8   2.6    -       -       3308     240     M      short
+V0146   50.1      0.15       511.1    6.1    493.2    9.5     43.3   2.5    614.2   -       3308     280     M      ok
+V0147   50.1      0.15       504.7    7.7    483.2    15.1    38.1   2.8    -       -       3308     300     M      short
+V0148   150.0     0.02       73.5     4.9    59.7     4.3     36.3   2.6    -       -       3308     260     L      ok
+V0149   150.0     0.02       68.2     7.9    51.6     6.2     39.3   2.9    -       -       3308     360     L      ok
+V0150   150.0     0.02       69.2     6.3    53.7     5.5     41.0   4.3    64.3    2.0     3308     240     L      ok
+V0151   150.0     0.06       224.4    1.8    239.6    3.0     37.2   2.1    211.7   -       3308     340     M      ok
+V0152   150.0     0.06       226.2    1.4    244.7    2.0     38.2   3.3    -       -       3308     340     M      ok
+V0153   150.0     0.06       224.5    1.4    239.9    3.0     40.8   1.9    -       -       3308     340     M      initially stable
+V0154   150.0     0.15       428.6    2.9    353.1    4.1     35.3   2.9    303.8   -       3308     340     M      ok
+V0155   150.0     0.15       425.4    2.3    345.2    3.0     35.4   7.9    -       -       3308     340     M      ok
+V0156   150.0     0.15       430.4    3.6    356.7    4.7     37.9   2.4    -       -       3308     300     M      ok
+V0157   50.1      0.04       113.1    28.8   65.8     16.2    38.2   2.6    -       -       3308     360     L      questionable
+V0158   50.1      0.04       122.7    23.1   73.0     13.4    37.8   4.4    114.1   22.1    3308     360     L      questionable
+V0159   50.1      0.04       114.3    40.4   68.6     23.4    43.5   4.8    -       -       3308     360     L      questionable
+V0160   50.1      0.1        262.1    19.9   168.6    18.4    42.2   3.0    -       -       3308     240     M      ok
+V0161   50.1      0.1        261.7    20.0   167.3    17.0    39.5   2.0    -       -       3308     240     M      ok
+V0162   50.1      0.1        257.4    18.4   160.1    14.1    33.6   3.0    253.0   -       3308     240     M      ok
+V0163   50.1      0.2        654.4    6.4    623.0    10.6    42.4   2.4    -       -       3308     290     M      short
+V0164   50.1      0.2        651.7    5.2    615.7    8.6     43.2   2.2    720.5   -       3308     340     M      short
+V0165   50.1      0.2        649.6    5.3    613.7    8.6     42.1   2.9    520.6   -       3308     340     M      short
+V0166   150.0     0.04       141.8    5.2    131.9    11.9    33.6   3.1    -       -       3308     300     M      initially stable
+V0167   150.0     0.04       137.9    3.7    128.9    10.2    40.4   2.1    121.3   -       3308     340     M      initially stable
+V0168   150.0     0.04       139.7    5.7    133.5    14.6    40.5   1.8    170.1   -       3308     320     M      initially stable
+V0169   150.0     0.1        325.3    3.9    312.0    6.1     35.4   2.9    234.0   -       3308     340     M      short
+V0170   150.0     0.1        322.4    6.1    307.5    10.7    36.3   2.7    -       -       3308     300     M      short
+V0171   150.0     0.1        326.6    6.6    313.6    11.5    40.5   2.7    351.0   -       3308     340     M      short
+V0172   150.0     0.2        517.5    7.9    373.6    13.5    32.7   3.6    -       -       3308     340     M      ok
+V0173   150.0     0.2        519.2    4.3    377.3    5.5     40.3   4.5    406.8   -       3308     340     M      ok
+V0174   150.0     0.2        520.0    12.2   380.3    20.9    40.7   2.8    410.9   -       3308     320     M      ok
+V0175   150.0     0.02       77.3     3.7    77.2     1.7     36.0   3.0    80.3    5.6     165404   -       M      ok
+V0176   10.0      0.02       80.9     15.4   48.6     8.9     39.0   2.4    46.8    -       3256     360     L      ok
+V0177   10.0      0.02       81.9     16.3   49.3     9.5     40.6   2.8    74.4    -       3256     360     L      ok
+V0178   10.0      0.02       80.8     16.4   48.3     9.2     37.2   2.7    -       -       3256     360     L      ok
+V0179   10.0      0.06       195.0    29.5   111.5    15.5    43.5   1.8    241.6   -       3256     360     L      ok
+V0180   10.0      0.06       190.9    18.7   106.3    10.8    33.9   2.7    -       -       3256     360     L      ok
+V0181   10.0      0.06       189.1    28.3   104.9    15.4    35.1   3.4    -       -       3256     360     L      ok
+V0182   10.0      0.15       404.7    24.7   221.7    18.4    41.3   2.2    -       -       3256     360     L      ok
+V0183   10.0      0.15       409.8    22.6   225.3    18.9    35.8   2.4    -       -       3256     360     L      ok
+V0184   10.0      0.15       414.3    23.3   233.3    19.9    40.3   2.0    272.5   21.5    3256     360     L      ok
+V0185   69.9      0.02       62.9     7.8    36.8     5.1     30.0   3.5    -       -       3256     360     L      ok
+V0186   69.9      0.02       66.1     22.0   40.6     13.8    36.4   2.5    68.7    12.3    3256     360     L      ok
+V0187   69.9      0.02       66.7     12.3   40.9     7.6     40.9   2.3    -       -       3256     360     L      ok
+V0188   69.9      0.06       167.1    17.3   109.0    12.7    37.5   4.8    -       -       3256     360     M      ok
+V0189   69.9      0.06       167.0    16.7   109.4    11.7    39.9   2.8    150.3   22.4    3256     360     M      ok
+V0190   69.9      0.06       166.2    15.1   107.8    10.7    36.1   3.5    -       -       3256     360     M      ok
+V0191   69.9      0.15       501.5    5.3    491.3    7.8     39.3   2.8    463.7   -       3256     300     M      short
+V0192   69.9      0.15       497.3    3.7    485.0    6.1     32.9   4.6    -       -       3256     300     M      short
+V0193   69.9      0.15       501.2    3.6    490.2    6.3     39.5   3.2    -       -       3256     300     M      short
+V0194   199.9     0.01       36.9     3.3    26.0     2.5     33.5   3.2    27.2    4.7     3256     360     L      ok
+V0195   199.9     0.01       39.5     3.8    28.3     2.9     40.5   3.8    -       -       3256     360     L      ok
+V0196   199.9     0.01       39.5     3.2    28.4     2.8     39.5   3.1    -       -       3256     360     L      ok
+V0197   199.9     0.04       159.1    1.0    171.3    1.6     40.8   3.1    -       -       3256     290     M      ok
+V0198   199.9     0.04       158.0    1.2    170.2    1.8     33.0   4.1    166.2   -       3256     290     M      ok
+V0199   199.9     0.04       159.3    0.9    172.3    1.1     38.3   3.7    -       -       3256     290     M      ok
+V0200   199.9     0.08       269.7    2.8    261.2    4.1     41.6   4.0    260.9   4.4     3256     360     M      short
+V0201   199.9     0.08       268.2    2.5    257.7    3.5     36.3   3.6    287.7   -       3256     360     M      short
+V0202   199.9     0.08       273.3    2.6    267.9    4.2     40.9   2.8    -       -       3256     360     M      short
+V0203   300.0     0.01       49.6     0.9    51.7     1.2     35.8   3.4    -       -       3256     290     M      ok
+V0204   300.0     0.01       51.5     1.2    55.9     1.8     38.6   2.7    47.7    3.3     3256     360     M      ok
+V0205   300.0     0.01       51.2     1.2    55.6     1.7     37.8   3.0    52.7    3.2     3256     360     M      ok
+V0206   300.0     0.04       146.9    3.3    150.4    3.4     43.5   2.0    -       -       3256     360     M      short
+V0207   300.0     0.04       149.2    3.2    152.9    5.3     41.7   2.5    134.6   -       3256     360     M      short
+V0208   300.0     0.04       149.9    2.4    152.9    3.5     36.6   2.9    -       -       3256     360     M      short
+V0209   300.0     0.08       260.1    2.7    233.5    1.9     42.4   3.0    -       -       3256     360     M      short
+V0210   300.0     0.08       259.7    1.4    233.0    1.0     43.3   2.5    246.9   -       3256     360     M      short
+V0211   300.0     0.08       257.5    1.8    227.2    2.1     40.4   2.3    -       -       3256     360     M      short
+V0212   10.0      0.01       45.2     14.2   28.6     8.3     36.9   2.9    -       -       3256     360     L      ok
+V0213   10.0      0.01       46.0     7.4    28.7     4.6     40.5   2.6    31.2    12.2    3256     360     L      ok
+V0214   10.0      0.01       44.9     7.8    27.6     4.6     35.4   2.8    -       -       3256     360     L      ok
+V0215   10.0      0.04       144.6    27.7   84.1     16.0    39.1   2.9    86.8    16.5    3256     360     L      ok
+V0216   10.0      0.04       145.4    27.6   85.1     15.2    41.6   3.4    -       -       3256     360     L      ok
+V0217   10.0      0.04       138.0    30.8   79.1     16.8    39.6   2.8    -       -       3256     360     L      ok
+V0218   10.0      0.08       249.5    20.2   142.7    12.1    36.3   3.4    -       -       3256     360     L      ok
+V0219   10.0      0.08       249.5    17.4   142.6    11.3    36.7   2.5    157.6   64.0    3256     360     L      ok
+V0220   10.0      0.08       244.7    18.2   138.7    12.0    36.7   2.5    179.5   -       3256     360     L      ok
+V0221   349.9     0.01       49.7     0.5    49.6     0.4     33.5   3.9    -       -       3256     360     L      ok
+
+
+
+
+                                                              38
+ Test    vc        f           Fc      σF c   Ff      σF     rn     σrn    havg    σhavg   lcut   Tchip   Wear   Status
+                                                         f
+         [m/min]   [mm/rev]    [N ]    [N ]   [N ]    [N ]   [µm]   [µm]   [µm]    [µm]    [mm]   [K]
+ V0222   349.9     0.01        56.3    0.5    61.1    0.4    42.6   2.0    -       -       3256   360     L      ok
+ V0223   349.9     0.01        54.0    0.5    56.0    0.4    39.8   1.9    36.5    3.8     3256   360     L      ok
+ V0224   349.9     0.04        152.1   1.1    156.1   1.6    36.2   2.5    -       -       3256   360     M      short
+ V0225   349.9     0.04        152.1   0.8    154.1   1.5    34.9   2.2    143.2   -       3256   360     M      short
+ V0226   349.9     0.04        153.4   2.0    158.2   2.7    38.7   3.1    -       -       3256   360     M      short
+ V0227   349.9     0.08        250.3   2.3    213.0   2.1    40.6   2.6    -       -       3256   360     M      short
+ V0228   349.9     0.08        245.8   2.0    203.6   2.3    36.5   2.2    216.3   -       3256   360     M      short
+ V0229   349.9     0.08        242.0   3.0    198.0   2.8    34.6   3.2    -       -       3256   360     M      short
+ V0230   250.1     0.02        83.6    0.5    82.3    0.4    43.0   1.8    -       -       3256   320     M      ok
+ V0231   250.1     0.02        81.6    0.5    79.3    0.5    39.8   2.5    64.0    5.4     3256   300     M      ok
+ V0232   250.1     0.02        82.5    0.7    80.6    0.5    41.6   3.0    -       -       3256   300     M      ok
+ V0233   250.1     0.06        207.7   2.4    202.2   3.9    39.9   3.5    -       -       3256   360     M      short
+ V0234   250.1     0.06        213.0   2.8    212.8   4.1    41.3   2.4    192.1   7.5     3256   360     M      short
+ V0235   250.1     0.06        206.2   2.3    198.2   3.8    33.3   3.7    -       -       3256   360     M      short
+ V0236   250.1     0.1         304.0   1.8    256.9   2.8    38.6   2.2    312.8   -       3256   360     M      ok
+ V0237   250.1     0.1         304.5   2.8    258.5   4.0    39.5   2.3    -       -       3256   360     M      short
+ V0238   250.1     0.1         304.6   2.6    258.2   3.2    39.2   2.8    -       -       3256   360     M      short
+ V0239   349.9     0.02        87.8    0.7    93.5    0.9    36.2   2.5    91.4    19.6    3256   360     M      short
+ V0240   349.9     0.02        88.7    0.9    94.4    1.0    33.6   2.9    -       -       3256   360     M      short
+ V0241   349.9     0.02        89.3    1.3    97.2    1.6    35.2   3.0    -       -       3256   360     M      short
+ V0242   349.9     0.06        207.1   2.1    194.6   2.5    38.2   3.4    -       -       3256   360     M      short
+ V0243   349.9     0.06        208.6   2.4    199.6   3.0    39.7   2.4    -       -       3256   360     M      short
+ V0244   349.9     0.06        204.3   2.2    187.9   3.0    34.7   3.0    215.3   -       3256   360     M      short
+ V0245   349.9     0.1         285.0   2.6    216.7   1.8    40.1   2.5    263.8   -       3256   360     M      ok
+ V0246   349.9     0.1         283.0   3.5    212.8   5.4    37.7   2.6    -       -       3256   360     M      ok
+ V0247   349.9     0.1         283.3   3.1    215.1   3.8    39.5   2.7    -       -       3256   360     M      ok
+ V0248   349.9     0.15        -0.0    0.1    -0.0    0.1    33.6   2.8    -       -       3256   360     M      error
+ V0249   349.9     0.15        369.7   4.8    229.6   6.0    35.2   3.1    346.4   -       3256   360     M      ok
+ V0250   349.9     0.15        375.2   3.3    236.9   4.2    38.4   3.0    -       -       3256   360     M      ok
+ V0251   499.9     0.02        -0.0    0.1    -0.0    0.1    40.3   2.3    58.0    0.4     3256   360     M      error
+ V0252   50.0      0.01        39.7    13.2   26.8    7.9    34.3   3.8    -       -       3260   360     L      ok
+ V0253   50.0      0.01        38.0    9.0    24.2    5.6    40.0   2.4    69.3    13.2    3260   360     L      ok
+ V0254   50.0      0.01        37.8    7.4    24.4    4.7    40.4   3.3    -       -       3260   360     L      ok
+ V0255   50.0      0.08        211.2   24.2   128.1   15.2   36.0   2.8    168.3   21.5    3260   360     M      ok
+ V0256   50.0      0.08        210.5   26.3   128.9   16.8   38.3   2.1    152.9   -       3260   360     L      ok
+ V0257   50.0      0.08        209.5   29.4   128.9   18.0   38.1   2.3    -       -       3260   360     M      ok
+ V0258   50.0      0.12        320.4   19.8   234.3   33.8   40.2   2.3    -       -       3260   200     M      short
+ V0259   50.0      0.12        325.1   16.7   241.1   29.7   41.2   2.5    339.0   -       3260   200     M      short
+ V0260   50.0      0.12        322.7   20.0   238.8   36.0   40.5   2.0    -       -       3260   200     M      short
+ V0261   250.0     0.01        51.1    0.5    53.9    0.7    35.6   3.1    35.2    -       3260   300     L      ok
+ V0262   250.0     0.01        52.6    1.1    57.3    1.3    41.6   2.1    -       -       3260   300     L      short
+ V0263   250.0     0.01        49.3    0.9    51.4    1.3    35.5   2.9    -       -       3260   300     L      short
+ V0264   250.0     0.08        250.4   1.8    223.6   2.6    32.0   3.1    -       -       3260   360     M      short
+ V0265   250.0     0.08        255.7   2.7    234.4   3.4    37.0   2.1    -       -       3260   360     M      short
+ V0266   250.0     0.08        259.8   2.9    241.9   3.9    40.6   2.4    249.9   -       3260   360     M      short
+ V0267   250.0     0.12        335.9   2.9    265.3   3.3    41.7   2.2    -       -       3260   360     M      ok
+ V0268   250.0     0.12        330.6   1.5    253.5   1.8    33.3   3.2    -       -       3260   360     M      ok
+ V0269   250.0     0.12        334.6   1.8    262.0   2.2    38.3   2.8    336.2   -       3260   360     M      ok
+ V0270   50.0      0.18        0.0     0.0    0.0     0.0    38.0   2.3    -       -       2173   360     M      ok
+ V0271   50.0      0.18        566.4   8.5    521.5   9.9    36.6   2.6    404.6   29.5    2173   360     M      ok
+ V0272   50.0      0.18        569.1   8.6    527.6   12.9   38.7   2.7    -       -       2173   360     M      ok
+ V0273   50.0      0.18        572.7   8.9    536.3   13.1   36.0   2.9    -       -       2173   360     M      ok
+ V0274   50.0      0.22        678.0   7.3    614.7   12.0   38.5   2.4    -       -       2173   360     M      ok
+ V0275   50.0      0.22        678.0   9.8    615.2   12.3   37.6   2.5    683.3   -       2173   360     M      ok
+ V0276   50.0      0.22        679.5   13.3   612.1   24.7   40.1   1.9    -       -       2173   360     M      short
+ V0277   200.0     0.02        84.4    1.8    83.5    2.3    38.2   2.3    -       -       3260   300     M      questionable
+ V0278   200.0     0.02        81.1    1.1    80.3    1.1    40.1   2.6    70.0    6.6     3260   300     M      ok
+ V0279   200.0     0.02        79.8    1.0    77.9    1.3    36.2   3.6    -       -       3260   300     M      ok
+ V0280   200.0     0.06        213.6   1.9    220.6   3.3    38.8   2.6    198.3   6.5     3260   360     M      short
+ V0281   200.0     0.06        213.1   1.4    218.9   2.4    38.9   2.3    -       -       3260   360     M      short
+ V0282   200.0     0.06        215.6   1.4    224.1   2.6    38.8   3.0    -       -       3260   360     M      short
+ V0283   200.0     0.1         307.6   2.5    275.4   4.3    35.9   2.8    -       -       3260   360     M      short
+ V0284   200.0     0.1         308.3   2.3    272.1   3.6    37.1   3.6    -       -       3260   360     M      short
+ V0285   200.0     0.1         310.3   3.0    279.7   4.3    37.9   2.3    325.5   88.9    3260   360     M      short
+ V0286   450.0     0.02        86.5    1.2    91.1    0.6    40.0   2.7    65.4    7.7     3260   360     M      short
+ V0287   450.0     0.02        86.5    1.2    92.9    0.9    41.1   2.3    -       -       3260   360     M      short
+ V0288   450.0     0.02        86.2    1.5    92.9    1.6    40.6   2.3    -       -       3260   360     M      short
+ V0289   450.0     0.06        193.1   2.6    167.8   1.9    38.0   2.4    142.9   2.5     3260   360     M      short
+ V0290   450.0     0.06        196.0   3.6    173.7   2.1    40.3   2.2    -       -       3260   360     M      short
+ V0291   450.0     0.06        190.1   2.1    162.1   1.8    34.4   3.6    -       -       3260   360     M      short
+ V0292   450.0     0.1         265.1   3.2    183.9   2.9    41.8   2.1    -       -       3260   300     M      ok
+ V0293   450.0     0.1         263.6   2.2    180.2   1.2    37.5   2.8    237.7   -       3260   300     M      ok
+ V0294   450.0     0.1         261.6   3.6    178.5   3.8    37.4   2.1    -       -       3260   300     M      ok
+ V0295   50.0      0.2         644.5   4.6    611.4   6.9    34.3   3.5    -       -       3260   360     M      ok
+ V0296   50.0      0.2         643.6   4.6    608.4   6.1    37.7   2.7    503.9   -       3260   360     M      ok
+ V0297   50.0      0.2         642.6   14.5   596.9   23.9   38.3   2.5    -       -       3260   360     M      ok
+ V0298   500.0     0.1         259.6   1.9    169.5   2.6    37.2   3.8    -       -       3260   280     M      ok
+ V0299   500.0     0.1         259.4   2.5    173.2   3.6    40.2   3.4    240.7   -       3260   280     M      ok
+ V0300   500.0     0.1         260.3   1.5    174.6   2.3    42.0   2.4    228.2   8.4     3260   280     M      ok
+
+                              Table B.15: Experimental results Ck45 orthogonal cutting tests
+
+
+
+Appendix C. Kienzle Parameters
+
+The Kienzle coefficients are given as a function of cutting speed for Ti6Al4V in table C.16
+and for Ck45 in C.17.
+
+
+
+
+                                                             39
+  vc       [m/min]     11     13       20     40     50     52     60     70     74     80     89     100 125       150    159 162       191 212     254    318 381     400 500
+ kc1.1    [N/mm2 ]     1299   1264     1265   1253   1061   1156   1146   1156   941    1084   891    932 962       998    869 1027      881 859     749    712 663     803 662
+  mc         [−]       0.21   0.22     0.22   0.22   0.28   0.27   0.27   0.24   0.32   0.28   0.34   0.33 0.31     0.3    0.31 0.28     0.32 0.32   0.37   0.36 0.38   0.35 0.41
+ kf 1.1   [N/mm2 ]     413    333      421    352    274    328    300    282    282    267    177    226 283       283    235 303       255 248     199    186 205     329 280
+  mf         [−]       0.51   0.63     0.54   0.61   0.7    0.66   0.69   0.69   0.69   0.73   0.89   0.77 0.69     0.7    0.72 0.67     0.71 0.72   0.8    0.78 0.75   0.66 0.73
+
+
+
+
+                Table C.16: Ti6Al4V: Kienzle coefficients for feed and cutting force estimations.
+
+                               vc          [m/min]          10     30     50     70     100    150    200    250    300    350    450
+                              kc1.1       [N/mm2 ]          1935   1803   1417   1729   1672   1707   1716   1794   1851   1575   1368
+                               mc            [−]            0.19   0.17   0.51   0.35   0.32   0.28   0.26   0.22   0.22   0.27   0.29
+                              kf 1.1      [N/mm2 ]          996    995    654    1156   809    765    1030   1268   1446   1024   587
+                               mf            [−]            0.23   0.2    0.96   0.55   0.65   0.6    0.45   0.31   0.29   0.38   0.53
+
+
+
+
+                     Table C.17: Ck45: Kienzle coefficients for feed and cutting force estimations.
+
+
+References
+
+ [1] Paul Albrecht. New developments in the theory of the metal-cutting process: part i. the
+     ploughing process in metal cutting. 1960.
+
+ [2] PJ Arrazola, T Özel, D Umbrello, M Davies, and IS Jawahir. Recent advances in
+     modelling of metal machining processes. CIRP Annals-Manufacturing Technology, 62
+     (2):695–718, 2013.
+
+ [3] Bijish Babu and Lars-Erik Lindgren. Dislocation density based model for plastic defor-
+     mation and globularization of ti-6al-4v. International Journal of Plasticity, 50:94–108,
+     2013.
+
+ [4] Thomas HC Childs. Revisiting flow stress modelling for simulating chip formation of
+     carbon and low alloy steels. Procedia CIRP, 82:26–31, 2019.
+
+ [5] Ashwin Devotta, Tomas Beno, Ronnie Löf, and Emil Espes. Quantitative characteri-
+     zation of chip morphology using computed tomography in orthogonal turning process.
+     Procedia CIRP, 33:299–304, 2015.
+
+ [6] ENISO DIN.        25178-606, 2013-12.       Geometrische Produktspezifikation (GPS)–
+     Oberflächenbeschaffenheit: Flächenhaft–Teil, 606.
+
+ [7] ENISO DIN. 6892-1: Metallische werkstoffe-zugversuch-teil 1: Prüfverfahren bei
+     raumtemperatur. Deutsches Institut für Normung: Berlin, Germany, 2009.
+
+ [8] DIN50125:2016-12. Prüfung metallischer werkstoffe – zugproben, December 2016.
+
+ [9] F Ducobu, E Rivière-Lorphèvre, and E Filippi. Experimental contribution to the study
+     of the ti6al4v chip formation in orthogonal cutting on a milling machine. International
+     Journal of Material Forming, 8(3):455–468, 2015.
+
+[10] F Ducobu, E Rivière-Lorphèvre, and E Filippi. On the importance of the choice of the
+     parameters of the johnson-cook constitutive model and their influence on the results of
+     a ti6al4v orthogonal cutting model. International Journal of Mechanical Sciences, 122:
+     143–155, 2017.
+
+[11] Ralf Förster and Anna Förster. Werkstoffe. In Einführung in die Fertigungstechnik,
+     pages 137–164. Springer, 2018.
+
+
+                                                                                 40
+[12] Francis H Froes and Ma Qian. Titanium in medical and dental applications. Woodhead
+     Publishing, 2018.
+
+[13] M Hardt, D Schraknepper, and T Bergs. Investigations on the application of the
+     downhill-simplex-algorithm to the inverse determination of material model parameters
+     for fe-machining simulations. Simulation Modelling Practice and Theory, 107:102214,
+     2021.
+
+[14] Mikko Hokka, Jari Rämö, Ahmad Mardoukhi, Taina Vuoristo, Armin Roth, and V-T
+     Kuokkala. Effects of microstructure on the dynamic strain aging in ferritic-pearlitic
+     steels. Journal of Dynamic Behavior of Materials, 4(4):452–463, 2018.
+
+[15] SI Jaffery and PT Mativenga. Assessment of the machinability of ti-6al-4v alloy using the
+     wear map approach. The International Journal of Advanced Manufacturing Technology,
+     40(7):687–696, 2009.
+
+[16] GR Johnson and WH Cook. A constitutive modeling and data for metals subjected to
+     large strain rates and high temperatures. Proceedings of 7th international symposium
+     on ballistics, pages 541–577, 1983.
+
+[17] Jaydeep Karandikar, Anirban Chaudhuri, Timothy No, Scott Smith, and Tony Schmitz.
+     Bayesian optimization for inverse calibration of expensive computer models: a case study
+     for johnson-cook model in machining. Manufacturing Letters, 2022.
+
+[18] Otto Kienzle. Die bestimmung von kräften und leistungen an spanenden werkzeugen
+     und werkzeugmaschinen. VDI-Z, 94(11):299–305, 1952.
+
+[19] Hagen Klippel. Constitutive Equations for Simulation of Metal Cutting with Meshless
+     Methods on GPU. PhD thesis, ETH Zurich, 2021.
+
+[20] Hagen Klippel, Marcel Gerstgrasser, Darko Smolenicki, Ezio Cadoni, Hans Roelofs, and
+     Konrad Wegener. Johnson cook flow stress parameter for free cutting steel 50sib8. arXiv
+     preprint arXiv:2007.14087, 2020.
+
+[21] Fritz Klocke. Schneidkantenpräparation.     In Fertigungsverfahren 1, pages 229–249.
+     Springer, 2018.
+
+[22] Wilfried König. Fertigungsverfahren 1: Drehen, Fräsen, Bohren. Springer-Verlag, 2008.
+
+[23] Linus Meier. Methods to reduce variation in cutting tool life tests. The International
+     Journal of Advanced Manufacturing Technology, 103(1):355–365, 2019.
+
+[24] Linus Meier, Nikolas Schaal, and Konrad Wegener. In-process measurement of the
+     coefficient of friction on titanium. Procedia Cirp, 58:163–168, 2017.
+
+[25] M Eugene Merchant. Mechanics of the metal cutting process. i. orthogonal cutting and
+     a type 2 chip. Journal of applied physics, 16(5):267–275, 1945.
+
+[26] M Eugene Merchant. Mechanics of the metal cutting process. ii. plasticity conditions in
+     orthogonal cutting. Journal of applied physics, 16(6):318–324, 1945.
+
+[27] Ashwin Moris Devotta, PV Sivaprasad, Tomas Beno, and Mahdi Eynian. Predicting
+     continuous chip to segmented chip transition in orthogonal cutting of c45e steel through
+     damage modeling. Metals, 10(4):519, 2020.
+
+                                             41
+[28] Otai.    Otai homepage. https://www.otaisteel.com/products/carbon-steel/
+     din-c45e-steel-ck45-carbon-structural-steel-din-17200-en10083/, 2022. Ac-
+     cessed: 28.03.2022.
+[29] Manfred Peters and Christoph Leyens. Titan und titanlegierungen. Wiley-VCH Wein-
+     heim, 2002.
+[30] Manfred Peters, Jörg Kumpfert, Charles H Ward, and Christoph Leyens. Titanium
+     alloys for aerospace applications. Advanced engineering materials, 5(6):419–427, 2003.
+[31] Alokesh Pramanik and Guy Littlefair. Machining of titanium alloy (ti-6al-4v)—theory
+     to application. Machining science and technology, 19(1):1–49, 2015.
+[32] Sandvik. Sandvik homepage. https://www.sandvik.coromant.com/de-de/products/
+     Pages/productdetails.aspx?c=CCMW%2009%20T3%2004%20%20%20%20%20%20%20H13A,
+     2021. Accessed: 23.02.2021.
+[33] Abraham Savitzky and Marcel JE Golay. Smoothing and differentiation of data by
+     simplified least squares procedures. Analytical chemistry, 36(8):1627–1639, 1964.
+[34] ASTM Standard. E8/e8m-13a. Standard Test Methods for Tension Testing of Metallic
+     Materials, ASTM International, West Conshohocken, PA, 2013.
+[35] Benedikt Thimm. Werkstoffmodellierung und Kennwertermittlung für die Simulation
+     spanabhebender Fertigungsprozesse. PhD thesis, Universität Siegen, 2018.
+[36] CA Van Luttervelt, THC Childs, IS Jawahir, F Klocke, PK Venuvinod, Y Altintas,
+     E Armarego, D Dornfeld, I Grabec, J Leopold, et al. Present situation and future
+     trends in modelling of machining operations progress report of the cirp working group
+     ‘modelling of machining operations’. CIRP Annals, 47(2):587–626, 1998.
+[37] Pauli Virtanen, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David
+     Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan Bright,
+     Stéfan J. van der Walt, Matthew Brett, Joshua Wilson, K. Jarrod Millman, Nikolay
+     Mayorov, Andrew R. J. Nelson, Eric Jones, Robert Kern, Eric Larson, C J Carey,
+     İlhan Polat, Yu Feng, Eric W. Moore, Jake VanderPlas, Denis Laxalde, Josef Perktold,
+     Robert Cimrman, Ian Henriksen, E. A. Quintero, Charles R. Harris, Anne M. Archibald,
+     Antônio H. Ribeiro, Fabian Pedregosa, Paul van Mulbregt, and SciPy 1.0 Contributors.
+     SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. Nature Meth-
+     ods, 17:261–272, 2020. doi: 10.1038/s41592-019-0686-2.
+[38] C-F Wyen and Konrad Wegener. Influence of cutting edge radius on cutting forces in
+     machining titanium. CIRP annals, 59(1):93–96, 2010.
+[39] Carl-Frederik Wyen. Rounded cutting edges and their influence in machining titanium.
+     PhD thesis, ETH Zürich, 2011.
+[40] Carl-Frederik Wyen, Wolfgang Knapp, and Konrad Wegener. A new method for the
+     characterisation of rounded cutting edges. The International Journal of Advanced Man-
+     ufacturing Technology, 59(9-12):899–914, 2012.
+[41] Muhammad Younas, Syed Husain Imran Jaffery, Ashfaq Khan, and Mushtaq Khan.
+     Development and analysis of tool wear and energy consumption maps for turning of
+     titanium alloy (ti6al4v). Journal of Manufacturing Processes, 62:613–622, 2021.
+
+                                            42
+

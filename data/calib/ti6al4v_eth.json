@@ -1,0 +1,56 @@
+{
+  "material": "Ti6Al4V",
+  "tau_s_MPa": 501.7173839257848,
+  "sigma_y_MPa": 869.0,
+  "mu": 0.765969112203835,
+  "tau_k": 0.8881503287575816,
+  "corrections": {
+    "c_rate": 0.0,
+    "Vref": 100.0,
+    "m_mu": 0.0,
+    "n_mu": 0.41939518337374826,
+    "n_size": 0.0,
+    "t_ref": 0.1,
+    "Ke_z": 15.34256307300311,
+    "Ke_xy": 5.95629837609671e-12,
+    "shear_model": "ernst_merchant",
+    "C_merchant": 70.0,
+    "k_beta": 1.0
+  },
+  "meta": {
+    "source": "ETH arXiv:2209.04197 App. B",
+    "n_rows": 273,
+    "factor_set": [
+      "mu",
+      "tau_k",
+      "Ke_z",
+      "Ke_xy",
+      "n_mu"
+    ],
+    "gamma0_deg": 0.0,
+    "rn_um_median": 37.7,
+    "bootstrap_5_95": {
+      "mu": {
+        "0.05": 0.74,
+        "0.95": 0.7941
+      },
+      "tau_k": {
+        "0.05": 0.8379,
+        "0.95": 0.9359
+      },
+      "Ke_z": {
+        "0.05": 10.7752,
+        "0.95": 20.1643
+      },
+      "Ke_xy": {
+        "0.05": 0.0,
+        "0.95": 0.0
+      },
+      "n_mu": {
+        "0.05": 0.4142,
+        "0.95": 0.425
+      }
+    },
+    "note": "tau_s = sigma_y/sqrt3; tau_k multiplies it"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "material": "SS316L",
+  "tau_s_MPa": 176.09183210283587,
+  "sigma_y_MPa": 305.0,
+  "mu": 0.8774868841546639,
+  "tau_k": 5.439190916370195,
+  "corrections": {
+    "c_rate": 0.0,
+    "Vref": 100.0,
+    "m_mu": 0.0,
+    "n_mu": 0.26598901130368713,
+    "n_size": 0.0,
+    "t_ref": 0.1,
+    "Ke_z": 13.232328629308805,
+    "Ke_xy": 1.2972530523344464e-12,
+    "shear_model": "ernst_merchant",
+    "C_merchant": 70.0,
+    "k_beta": 1.0
+  },
+  "meta": {
+    "PROVISIONAL": true,
+    "sigma_y_note": "305 MPa = JC A (Chandrasekaran/M'Saoubi set) PLACEHOLDER - replace with certificate value",
+    "tau_k_note": "JC(A=305,B=1161,n=0.61) at shear-plane strain for beta=24.4 deg, x Ck45 fit/JC ratio 0.915",
+    "friction_edge_note": "mu, Ke_z, Ke_xy, n_mu copied from Ck45 ETH fit (rn~38um uncoated carbide); real insert differs",
+    "no_316L_force_data_used": true
+  }
+}

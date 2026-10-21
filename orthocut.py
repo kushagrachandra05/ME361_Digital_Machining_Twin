@@ -55,6 +55,8 @@ class Corrections:
     Vref: float = 100.0          # [m/min]
     # speed dependence of friction: mu*(Vc/Vref)**(-m_mu)
     m_mu: float = 0.0
+    # thickness dependence of mean friction (constant-mu assumption violated): mu*(t/t_ref)**(-n_mu)
+    n_mu: float = 0.0
     # size effect on shear strength: tau_s*(t/t_ref)**(-n_size)
     n_size: float = 0.0
     t_ref: float = 0.1           # [mm]
@@ -94,7 +96,7 @@ def solve(mat: Material, tool: Tool, cut: Cut, corr: Corrections = Corrections()
     # speed / size dependent effective properties (identity when corr is default)
     tau = mat.tau_s * (1 + corr.c_rate*np.log(max(cut.Vc, 1e-9)/corr.Vref)) \
                     * (cut.t/corr.t_ref)**(-corr.n_size)
-    mu = tool.mu * (max(cut.Vc, 1e-9)/corr.Vref)**(-corr.m_mu)
+    mu = tool.mu * (max(cut.Vc, 1e-9)/corr.Vref)**(-corr.m_mu) * (cut.t/corr.t_ref)**(-corr.n_mu)
     eta = np.arctan(mu)
     beta = corr.k_beta*shear_angle(corr.shear_model, g, eta, corr.C_merchant)
     if not (0 < beta < np.pi/2) or not (beta + eta - g < np.pi/2):
@@ -119,6 +121,29 @@ def solve(mat: Material, tool: Tool, cut: Cut, corr: Corrections = Corrections()
                   float(np.hypot(Pz, Pxy)), Pz, Pxy, Pxy*np.sin(ph), Pxy*np.cos(ph),
                   r, cut.t/r, Vc_ms*r, Vc_ms*np.cos(g)/np.cos(beta - g),
                   tool.gamma0_deg)
+
+def forces_vec(tau_s, gamma0_deg, mu, Vc, t, w, corr: Corrections = Corrections()):
+    """Vectorised (Pz, Pxy) with exactly the equations of solve(); arrays broadcast.
+    Non-physical shear angles give NaN instead of raising (used by calibrate.py)."""
+    Vc = np.maximum(np.asarray(Vc, float), 1e-9); t = np.asarray(t, float); w = np.asarray(w, float)
+    g = np.radians(gamma0_deg)
+    tau = tau_s*(1 + corr.c_rate*np.log(Vc/corr.Vref))*(t/corr.t_ref)**(-corr.n_size)
+    eta = np.arctan(mu*(Vc/corr.Vref)**(-corr.m_mu)*(t/corr.t_ref)**(-corr.n_mu))
+    beta = corr.k_beta*shear_angle(corr.shear_model, g, eta, corr.C_merchant)
+    ok = (beta > 0) & (beta < np.pi/2) & (beta + eta - g < np.pi/2)
+    R = tau*w*t/np.sin(beta)/np.cos(beta + eta - g)
+    Pz = np.where(ok, R*np.cos(eta - g) + corr.Ke_z*w, np.nan)
+    Pxy = np.where(ok, R*np.sin(eta - g) + corr.Ke_xy*w, np.nan)
+    return Pz, Pxy
+
+def tau_s_flow_JC(A, B, n, gamma0_deg, beta_deg):
+    """OPTIONAL estimate of the shear-plane flow stress for the tau_s input, from tensile Johnson-Cook
+    hardening A+B*eps^n evaluated at the single-shear-plane strain
+        gamma_s = cos(g0)/(sin(beta) cos(beta-g0))  (slide kinematics),  eps = gamma_s/sqrt(3).
+    No rate/temperature terms (out of scope). Use only to justify the size of tau_k; it is not a new model."""
+    g, b = np.radians(gamma0_deg), np.radians(beta_deg)
+    eps = np.cos(g)/(np.sin(b)*np.cos(b - g))/np.sqrt(3)
+    return (A + B*eps**n)/np.sqrt(3)
 
 # ------------------------------------------------- inverse / calibration helpers
 def mu_from_forces(Pz, Pxy, gamma0_deg):

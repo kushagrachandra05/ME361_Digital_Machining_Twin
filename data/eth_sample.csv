@@ -1,0 +1,23 @@
+source,test_id,material,vc_m_min,f_mm_rev,t_mm,w_mm,gamma0_deg,Fc_N,Ff_N,rn_um,status,chip_form,bue_flag,note
+ETH_TiCk45,V0329,Ti6Al4V,100.0,0.01,0.01,1.0,0.0,44.1,81.4,40.6,ok,segmented,0,transcribed from arXiv:2209.04197 Table B.14 (pipeline test fixture)
+ETH_TiCk45,V0365,Ti6Al4V,100.0,0.02,0.02,1.0,0.0,61.0,80.6,37.2,ok,segmented,0,transcribed
+ETH_TiCk45,V0332,Ti6Al4V,100.0,0.04,0.04,1.0,0.0,99.0,96.0,33.8,ok,segmented,0,transcribed
+ETH_TiCk45,V0368,Ti6Al4V,100.0,0.08,0.08,1.0,0.0,173.8,129.3,39.2,ok,segmented,0,transcribed
+ETH_TiCk45,V0335,Ti6Al4V,100.0,0.10,0.10,1.0,0.0,203.3,140.0,37.9,ok,segmented,0,transcribed
+ETH_TiCk45,V0371,Ti6Al4V,100.0,0.15,0.15,1.0,0.0,265.0,161.1,43.3,ok,segmented,0,transcribed
+ETH_TiCk45,V0504,Ti6Al4V,100.0,0.20,0.20,1.0,0.0,325.2,172.5,39.4,ok,segmented,0,transcribed
+ETH_TiCk45,V0310,Ti6Al4V,50.1,0.02,0.02,1.0,0.0,61.7,71.4,32.4,ok,segmented,0,transcribed
+ETH_TiCk45,V0313,Ti6Al4V,50.1,0.06,0.06,1.0,0.0,139.8,121.3,38.4,ok,segmented,0,transcribed
+ETH_TiCk45,V0316,Ti6Al4V,50.1,0.10,0.10,1.0,0.0,211.4,143.2,38.7,ok,segmented,0,transcribed
+ETH_TiCk45,V0344,Ti6Al4V,39.9,0.10,0.10,1.0,0.0,211.9,152.2,40.1,ok,segmented,0,transcribed
+ETH_TiCk45,V0326,Ti6Al4V,19.9,0.10,0.10,1.0,0.0,211.1,146.8,37.3,ok,segmented,0,transcribed
+ETH_TiCk45,V0362,Ti6Al4V,19.9,0.15,0.15,1.0,0.0,291.4,171.8,38.5,ok,segmented,0,transcribed
+ETH_TiCk45,V0380,Ti6Al4V,19.9,0.20,0.20,1.0,0.0,366.6,198.7,40.9,ok,segmented,0,transcribed
+ETH_TiCk45,V0507,Ti6Al4V,150.0,0.06,0.06,1.0,0.0,138.2,118.3,36.5,ok,segmented,0,transcribed
+ETH_TiCk45,V0456,Ti6Al4V,150.0,0.10,0.10,1.0,0.0,195.9,134.3,36.4,ok,segmented,0,transcribed
+ETH_TiCk45,V0510,Ti6Al4V,150.0,0.12,0.12,1.0,0.0,218.6,144.3,39.0,ok,segmented,0,transcribed
+ETH_TiCk45,V0513,Ti6Al4V,150.0,0.20,0.20,1.0,0.0,324.2,176.0,36.0,short,segmented,0,transcribed
+ETH_TiCk45,V0047,Ti6Al4V,212.2,0.10,0.10,1.0,0.0,171.0,120.9,33.8,short,segmented,0,transcribed
+ETH_TiCk45,V0059,Ti6Al4V,318.5,0.10,0.10,1.0,0.0,162.0,112.1,32.2,short,segmented,0,transcribed
+ETH_TiCk45,V0066,Ti6Al4V,381.3,0.40,0.40,1.0,0.0,468.5,412.3,34.8,error,segmented,0,transcribed (status error - must be dropped by filter)
+ETH_TiCk45,V0075,Ck45,10.1,0.2,0.2,1.0,0.0,509.0,303.2,42.4,saturation,continuous,1,transcribed from Table B.15 (Ck45; vc=10 m/min is in the BUE regime; status saturation) - must be dropped by filter

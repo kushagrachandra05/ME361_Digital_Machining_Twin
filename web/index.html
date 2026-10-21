@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ME361 Digital Machining Twin - Orthogonal Cutting Physics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top App Navigation -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-badge">ME361 TWIN</span>
+      <h1>Digital Machining Twin</h1>
+      <span class="brand-sub">Orthogonal Single-Shear-Plane Model & Live Calibrated Feed</span>
+    </div>
+    <div class="header-actions">
+      <button id="btnOpenAssumptions" class="btn btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        Assumption Justification Table
+      </button>
+      <button id="btnPlayPause" class="btn btn-outline">Pause</button>
+      <button id="btnReset" class="btn btn-outline">Reset Log</button>
+      <button id="btnExportCSV" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Export Log (CSV)
+      </button>
+    </div>
+  </header>
+
+  <!-- App Body Layout -->
+  <main class="app-container">
+    
+    <!-- Left Sidebar Controls -->
+    <aside class="sidebar">
+      
+      <!-- Material Preset -->
+      <div class="glass-panel">
+        <div class="section-title">
+          <span>Workpiece & Calibration</span>
+        </div>
+        <div class="preset-selector">
+          <label for="presetSelect">Calibrated Preset</label>
+          <select id="presetSelect">
+            <option value="SS316L">SS316L (Provisional Calibrated Preset)</option>
+            <option value="Ck45">Ck45 (ETH Zürich 519-Run Fit)</option>
+            <option value="Ti6Al4V">Ti6Al4V (ETH Zürich Calibrated)</option>
+            <option value="CUSTOM">Pure Slide Baseline (Custom)</option>
+          </select>
+          <p id="presetMetaNote" style="font-size: 0.72rem; color: var(--text-dim); margin-top: 8px; line-height: 1.4;"></p>
+        </div>
+
+        <!-- Master Toggles -->
+        <div class="switch-box">
+          <div class="switch-label-group">
+            <span class="switch-title">Calibrated Corrections</span>
+            <span class="switch-desc">Fitted μ, τ_k, Ke_z, n_μ</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggleCorrections" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+
+        <div class="switch-box">
+          <div class="switch-label-group">
+            <span class="switch-title">Overlay Baseline</span>
+            <span class="switch-desc">Compare vs pure slide model</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggleBaseline" checked>
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Process Parameters -->
+      <div class="glass-panel">
+        <div class="section-title">
+          <span>Process Inputs (In-Scope)</span>
+        </div>
+
+        <!-- Cutting Speed Vc -->
+        <div class="control-group">
+          <div class="control-row">
+            <label for="paramVc">Cutting Speed (Vc)</label>
+            <span id="valVc" class="control-val">125 m/min</span>
+          </div>
+          <input type="range" id="paramVc" min="10" max="500" step="5" value="125">
+        </div>
+
+        <!-- Uncut chip thickness t -->
+        <div class="control-group">
+          <div class="control-row">
+            <label for="paramT">Uncut Thickness (t / feed)</label>
+            <span id="valT" class="control-val">0.10 mm</span>
+          </div>
+          <input type="range" id="paramT" min="0.01" max="0.40" step="0.01" value="0.10">
+        </div>
+
+        <!-- Tube Wall Width w -->
+        <div class="control-group">
+          <div class="control-row">
+            <label for="paramW">Width of Cut (w = wall)</label>
+            <span id="valW" class="control-val">2.0 mm</span>
+          </div>
+          <input type="range" id="paramW" min="0.5" max="4.0" step="0.1" value="2.0">
+        </div>
+
+        <!-- Tool Rake Angle gamma0 -->
+        <div class="control-group">
+          <div class="control-row">
+            <label for="paramGamma">Orthogonal Rake Angle (γ0)</label>
+            <span id="valGamma" class="control-val">0°</span>
+          </div>
+          <input type="range" id="paramGamma" min="-10" max="20" step="1" value="0">
+        </div>
+
+        <!-- Shear Strength tau_s -->
+        <div class="control-group">
+          <div class="control-row">
+            <label for="paramTauS">Initial Shear Yield (τs)</label>
+            <span id="valTauS" class="control-val">176 MPa</span>
+          </div>
+          <input type="range" id="paramTauS" min="50" max="800" step="5" value="176">
+        </div>
+
+        <!-- Friction Coeff mu -->
+        <div class="control-group">
+          <div class="control-row">
+            <label for="paramMu">Base Friction Coeff (μ)</label>
+            <span id="valMu" class="control-val">0.88</span>
+          </div>
+          <input type="range" id="paramMu" min="0.1" max="1.5" step="0.02" value="0.88">
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Main Live Twin Dashboard -->
+    <section class="dashboard">
+
+      <!-- Live Metric Cards -->
+      <div class="metrics-grid">
+        <div class="metric-card card-pz">
+          <span class="metric-label">Cutting Force (Pz)</span>
+          <div class="metric-value-row">
+            <span id="statPz" class="metric-val">0</span>
+            <span class="metric-unit">N</span>
+          </div>
+          <span id="deltaPz" class="metric-delta delta-plus">+0% vs Base</span>
+        </div>
+
+        <div class="metric-card card-pxy">
+          <span class="metric-label">Thrust Force (Pxy)</span>
+          <div class="metric-value-row">
+            <span id="statPxy" class="metric-val">0</span>
+            <span class="metric-unit">N</span>
+          </div>
+          <span id="deltaPxy" class="metric-delta delta-plus">+0% vs Base</span>
+        </div>
+
+        <div class="metric-card card-res">
+          <span class="metric-label">Resultant (R)</span>
+          <div class="metric-value-row">
+            <span id="statR" class="metric-val">0</span>
+            <span class="metric-unit">N</span>
+          </div>
+        </div>
+
+        <div class="metric-card card-angles">
+          <span class="metric-label">Shear Angle (β)</span>
+          <div class="metric-value-row">
+            <span id="statBeta" class="metric-val">0.0</span>
+            <span class="metric-unit">°</span>
+          </div>
+        </div>
+
+        <div class="metric-card card-chip">
+          <span class="metric-label">Chip Thickness (tc)</span>
+          <div class="metric-value-row">
+            <span id="statChip" class="metric-val">0.000</span>
+            <span class="metric-unit">mm</span>
+          </div>
+        </div>
+
+        <div class="metric-card card-pz">
+          <span class="metric-label">Specific Pressure (kc)</span>
+          <div class="metric-value-row">
+            <span id="statKc" class="metric-val">0</span>
+            <span class="metric-unit">MPa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Visualizers Grid -->
+      <div class="vis-grid">
+        
+        <!-- Animated Cutting Zone -->
+        <div class="glass-panel canvas-panel">
+          <div class="panel-header">
+            <div>
+              <h3>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Kinematic Cutting Zone
+              </h3>
+              <span class="panel-sub">Shear plane β, hodograph chip velocity Vchip = r·Vc, flow tracers</span>
+            </div>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="canvasAnim"></canvas>
+          </div>
+        </div>
+
+        <!-- Merchant Circle -->
+        <div class="glass-panel canvas-panel">
+          <div class="panel-header">
+            <div>
+              <h3>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+                Merchant Force Circle
+              </h3>
+              <span class="panel-sub">Resultant R diameter, components Pz, Pxy, F, N, Ps, PN</span>
+            </div>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="canvasCircle"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Force Oscilloscope / Strip Chart -->
+      <div class="glass-panel chart-panel">
+        <div class="chart-header">
+          <div class="panel-header" style="margin-bottom: 0;">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              Live Force Oscilloscope (Steady State)
+            </h3>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background: var(--accent-green);"></span>
+              <span>Pz (Cutting)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: var(--accent-rose);"></span>
+              <span>Pxy (Thrust)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background: rgba(148, 163, 184, 0.6); border-top: 1px dashed white;"></span>
+              <span>Baseline Pure Slide</span>
+            </div>
+          </div>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="canvasChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Live Telemetry Log Stream -->
+      <div class="glass-panel table-panel">
+        <div class="panel-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            Live Telemetry Log Stream
+          </h3>
+          <span class="panel-sub">Streaming steady-state frames (ready for CSV export)</span>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Mode</th>
+                <th>Vc (m/min)</th>
+                <th>t (mm)</th>
+                <th>Pz (Corr)</th>
+                <th>Pxy (Corr)</th>
+                <th>Pz (Base)</th>
+                <th>Pxy (Base)</th>
+                <th>β (deg)</th>
+                <th>tc (mm)</th>
+              </tr>
+            </thead>
+            <tbody id="telemetryTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Assumption Justification Modal -->
+  <div id="assumptionsModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Assumption-by-Assumption Scope & Justification</h2>
+        <button id="btnCloseAssumptions" class="modal-close">&times;</button>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+        The ME361 project locks the scope strictly to <strong>pure orthogonal cutting, single shear plane, steady state</strong>.
+        The table below details every slide assumption from Lecture 2, whether real data violate it, the physical cause, and the twin's rigorous handling.
+      </p>
+
+      <table class="justification-table">
+        <thead>
+          <tr>
+            <th>Lecture-2 Slide Assumption</th>
+            <th>Physical Reality (ETH Data)</th>
+            <th>Digital Twin Handling</th>
+            <th>Scope Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Perfectly sharp tool</strong> (cutting edge radius rn = 0, no flank contact)</td>
+            <td>Real inserts have finite hone (ETH rn ≈ 38 µm). At small t, forces show large positive intercepts at t → 0 due to ploughing.</td>
+            <td>Calibrated edge force terms <code>Ke_z</code> (≈13–15 N/mm) added to cutting force.</td>
+            <td><span class="badge-tag badge-corr">CORRECTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>2. Constant mean friction coefficient μ</strong> on the tool rake face</td>
+            <td>Apparent μ = F/N falls from ~1.8 at t=0.01 mm down to ~0.5 at t=0.2 mm as ploughing gives way to chip flow.</td>
+            <td>Fitted thickness sensitivity <code>n_mu</code> (μ ∝ t<sup>-n_mu</sup>). Corrects the scale effect without breaking steady state.</td>
+            <td><span class="badge-tag badge-corr">CORRECTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>3. Material shear strength τs = σy/√3</strong> (initial yield)</td>
+            <td>Shear plane undergoes severe plastic deformation (shear strain γ ≈ 2–3). Work-hardening steels (Ck45, 316L) harden significantly.</td>
+            <td>Calibration multiplier <code>tau_k</code> (Ck45: 2.66, SS316L provisional: 5.44) matches Johnson-Cook flow stress at true shear strain.</td>
+            <td><span class="badge-tag badge-corr">CORRECTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>4. Continuous chip formation</strong> (no segmentation, no serration)</td>
+            <td>Ti6Al4V forms segmented/serrated chips at all tested speeds. Ck45 forms continuous chips above 150 m/min.</td>
+            <td>Ck45 serves as the continuous-chip steel analogue for SS316L. Segmented Ti6Al4V is documented as an illustrative violation.</td>
+            <td><span class="badge-tag badge-scope">IN-SCOPE (CONTINUOUS)</span></td>
+          </tr>
+          <tr>
+            <td><strong>5. No Built-Up Edge (BUE)</strong></td>
+            <td>Ck45 chips show severe BUE below vc = 100 m/min and at vc = 150 m/min for small feeds.</td>
+            <td>Every BUE-suspect row is explicitly dropped by <code>datapipe.apply_scope</code> and logged. Only stable, clean cuts retained.</td>
+            <td><span class="badge-tag badge-excluded">FILTERED OUT</span></td>
+          </tr>
+          <tr>
+            <td><strong>6. Isothermal cutting</strong> (no thermal softening / temperature fields)</td>
+            <td>At high cutting speeds, heat softens the workpiece, slightly reducing cutting forces.</td>
+            <td>Speed terms (<code>c_rate</code>, <code>m_mu</code>) are left OFF in the default preset because temperature models are strictly out of scope.</td>
+            <td><span class="badge-tag badge-excluded">OUT OF SCOPE</span></td>
+          </tr>
+          <tr>
+            <td><strong>7. Steady state within a run</strong> (no start-up/exit transients)</td>
+            <td>Forces reach a steady plateau after ~1–2 ms of engagement.</td>
+            <td>Forces remain mathematically constant across time; live feed demonstrates steady-state feed per slide equations.</td>
+            <td><span class="badge-tag badge-scope">LOCKED SCOPE</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="twin.js"></script>
+</body>
+</html>
